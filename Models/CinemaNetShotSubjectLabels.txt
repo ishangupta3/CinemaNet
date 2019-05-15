@@ -1,0 +1,6 @@
+people
+text
+face
+person
+animal
+faces

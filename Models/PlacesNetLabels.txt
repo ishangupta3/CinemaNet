@@ -1,0 +1,365 @@
+office building
+veterinarians office
+viaduct
+nursery
+mansion
+television studio
+mountain path
+throne room
+stable
+restaurant kitchen
+wave
+gift shop
+waiting room
+apartment building outdoor
+harbor
+topiary garden
+trench
+building facade
+tree farm
+underwater ocean deep
+attic
+heliport
+field wild
+hardware store
+storage room
+street
+physics laboratory
+kennel outdoor
+shopping mall indoor
+swimming pool indoor
+escalator indoor
+bank vault
+airport terminal
+elevator shaft
+biology laboratory
+golf course
+ice skating rink outdoor
+ski slope
+coffee shop
+balcony interior
+art school
+supermarket
+hangar outdoor
+home theater
+gazebo exterior
+forest road
+garage indoor
+museum outdoor
+garage outdoor
+islet
+sky
+bazaar outdoor
+stadium soccer
+hospital
+vineyard
+manufactured home
+amusement park
+raft
+library indoor
+porch
+alcove
+tundra
+forest path
+downtown
+berth
+bow window indoor
+jail cell
+locker room
+stadium football
+general store indoor
+sushi bar
+crevasse
+campsite
+pond
+baseball field
+butchers shop
+beach
+mountain snowy
+staircase
+farm
+swimming hole
+wind farm
+arch
+repair shop
+classroom
+badlands
+orchard
+mezzanine
+corral
+sandbox
+auto factory
+lagoon
+wheat field
+patio
+office
+general store outdoor
+church outdoor
+shopfront
+elevator door
+schoolhouse
+water park
+racecourse
+courthouse
+marsh
+beach house
+dam
+hot spring
+entrance hall
+greenhouse outdoor
+volcano
+doorway outdoor
+subway station platform
+basketball court indoor
+house
+fishpond
+pantry
+elevator lobby
+dining hall
+toyshop
+ballroom
+motel
+lock chamber
+field road
+fountain
+playground
+football field
+pizzeria
+hunting lodge outdoor
+highway
+beer garden
+bullring
+parking lot
+cockpit
+catacomb
+river
+yard
+hospital room
+martial arts gym
+rainforest
+castle
+office cubicles
+church indoor
+bus interior
+discotheque
+art gallery
+galley
+loading dock
+cabin outdoor
+assembly line
+drugstore
+arena rodeo
+hayfield
+residential neighborhood
+park
+junkyard
+oilrig
+iceberg
+desert vegetation
+beauty salon
+shower
+snowfield
+kasbah
+railroad track
+computer room
+nursing home
+conference center
+palace
+grotto
+alley
+mountain
+synagogue outdoor
+ticket booth
+fire station
+food court
+artists loft
+library outdoor
+promenade
+shoe shop
+lawn
+swamp
+arena hockey
+art studio
+bus station indoor
+bedroom
+fastfood restaurant
+phone booth
+ruin
+hotel room
+rope bridge
+bakery shop
+natural history museum
+water tower
+bridge
+restaurant patio
+banquet hall
+coast
+boathouse
+basement
+bar
+embassy
+corn field
+raceway
+industrial area
+excavation
+inn outdoor
+operating room
+botanical garden
+driveway
+barn
+construction site
+closet
+aqueduct
+fire escape
+lake natural
+skyscraper
+crosswalk
+living room
+clothing store
+chemistry lab
+courtyard
+aquarium
+butte
+legislative chamber
+kitchen
+ski resort
+pagoda
+restaurant
+army base
+archaelogical excavation
+bazaar indoor
+candy store
+barndoor
+diner outdoor
+canyon
+jewelry shop
+village
+temple asia
+wet bar
+landing deck
+lighthouse
+recreation room
+car interior
+chalet
+athletic field outdoor
+forest broadleaf
+ice cream parlor
+boxing ring
+runway
+moat water
+orchestra pit
+delicatessen
+ball pit
+parking garage indoor
+dorm room
+canal urban
+bedchamber
+campus
+booth indoor
+corridor
+boat deck
+windmill
+department store
+sauna
+waterfall
+lobby
+arena performance
+japanese garden
+ocean
+volleyball court outdoor
+vegetable garden
+parking garage outdoor
+mausoleum
+zen garden
+ice shelf
+roof garden
+server room
+conference room
+television room
+cemetery
+pharmacy
+airfield
+field cultivated
+mosque outdoor
+home office
+rock arch
+utility room
+market indoor
+pier
+ice floe
+oast house
+train interior
+flea market indoor
+clean room
+movie theater indoor
+amusement arcade
+tower
+auditorium
+shed
+creek
+dining room
+youth hostel
+burial chamber
+pasture
+tree house
+balcony exterior
+train station platform
+ice skating rink indoor
+stage outdoor
+bathroom
+slum
+desert road
+soccer field
+playroom
+florist shop indoor
+bamboo forest
+plaza
+pub indoor
+childs room
+swimming pool outdoor
+watering hole
+pet shop
+cafeteria
+arcade
+dressing room
+airplane cabin
+atrium public
+bowling alley
+valley
+museum indoor
+auto showroom
+stadium baseball
+canal natural
+greenhouse indoor
+bookstore
+cottage
+lecture room
+science museum
+formal garden
+market outdoor
+kindergarden classroom
+pavilion
+hotel outdoor
+desert sand
+rice paddy
+gymnasium indoor
+amphitheater
+boardwalk
+engine room
+hangar indoor
+archive
+beer hall
+glacier
+stage indoor
+music studio
+gas station
+carrousel
+medina
+cliff
+fabric store
+picnic area
+jacuzzi indoor
+landfill
+reception
+laundromat
+igloo
