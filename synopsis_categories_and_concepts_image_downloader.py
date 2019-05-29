@@ -172,7 +172,7 @@ categories_and_classes = {
 	{"synopsis.image.shot.location.tunnel" : ["Tunnel"]},
 	{"synopsis.image.shot.location.port" : ["Port"]},
 	{"synopsis.image.shot.location.station" : ["Station"]},
-	{"synopsis.image.shot.location.lot" : ["Lot"]},
+	{"synopsis.image.shot.location.parkinglot" : ["Parking Lot"]},
 	{"synopsis.image.shot.location.airport" : ["Airport"]},
 	{"synopsis.image.shot.location.playground" : ["Playground"]},
 	{"synopsis.image.shot.location.sidewalk" : ["Sidewalk"]},
@@ -202,14 +202,14 @@ categories_and_classes = {
 	],
 
 "synopsis.image.sentiment" : [
-	{ "synopsis.image.sentiment.fear" : ["Fear"]},
-	{ "synopsis.image.sentiment.anger" : ["Anger"]},
-	{ "synopsis.image.sentiment.sadness" : ["Sadness"]},
-	{ "synopsis.image.sentiment.joy" : ["Joy"]},
-	{ "synopsis.image.sentiment.disgust" : ["Disgust"]},
-	{ "synopsis.image.sentiment.surprise" : ["Surprise"]},
-	{ "synopsis.image.sentiment.trust" : ["Trust"]},
-	{ "synopsis.image.sentiment.anticipation" : ["Anticipation"]},
+	{ "synopsis.image.sentiment.fear" : ["Fear photography"]},
+	{ "synopsis.image.sentiment.anger" : ["Anger photography"]},
+	{ "synopsis.image.sentiment.sadness" : ["Sadness photography"]},
+	{ "synopsis.image.sentiment.joy" : ["Joy photography"]},
+	{ "synopsis.image.sentiment.disgust" : ["Disgust photography"]},
+	{ "synopsis.image.sentiment.surprise" : ["Surprise photography"]},
+	{ "synopsis.image.sentiment.trust" : ["Trust photography"]},
+	{ "synopsis.image.sentiment.anticipation" : ["Anticipation photography"]},
 	],
 
  }
