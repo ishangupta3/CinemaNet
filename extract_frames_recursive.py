@@ -17,7 +17,7 @@ def processFile(filename):
 
 		print('processing :' + current_file)
 		print('to ' + destination)
-		return subprocess.Popen(["ffmpeg", "-i", str(current_file),  "-vf", "fps=1/3", str(destination), "-hide_banner"]).wait()
+		return subprocess.Popen(["ffmpeg", "-i", str(current_file),  "-vf", "fps=1/3", "-q:v 2" str(destination), "-hide_banner"]).wait()
 
 print('scanning ' + input_dir + ' for files with extension ' + extension)
 print('outputing to ' + output_dir)
