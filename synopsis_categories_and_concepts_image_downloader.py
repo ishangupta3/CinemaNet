@@ -1,4 +1,5 @@
 from google_images_download import google_images_download   #importing the library
+from multiprocessing import Pool
 
 
 # top level dictionary key is top level category directory name 
@@ -126,14 +127,14 @@ categories_and_classes = {
 	],
 
 	"synopsis.image.shot.weather" : [
-	{ "synopsis.image.shot.weather.sun" : ["Sun"]},
-	{ "synopsis.image.shot.weather.clouds" : ["Clouds"]},
-	{ "synopsis.image.shot.weather.rain" : ["Rain"]},
-	{ "synopsis.image.shot.weather.fog" : ["Fog"]},
-	{ "synopsis.image.shot.weather.snow" : ["Snow"]},
-	{ "synopsis.image.shot.weather.lighting" : ["Lighting"]},
-	{ "synopsis.image.shot.weather.hail" : ["Hail"]},
-	{ "synopsis.image.shot.weather.fire" : ["Fire"]},
+	{ "synopsis.image.shot.weather.sun" : ["Sunny weather"]},
+	{ "synopsis.image.shot.weather.clouds" : ["Cloudy weather"]},
+	{ "synopsis.image.shot.weather.rain" : ["Rainy weather"]},
+	{ "synopsis.image.shot.weather.fog" : ["Foggy weather"]},
+	{ "synopsis.image.shot.weather.snow" : ["Snowy weather"]},
+	{ "synopsis.image.shot.weather.lighting" : ["Stormy Weather"]},
+	{ "synopsis.image.shot.weather.hail" : ["Hail weather"]},
+	{ "synopsis.image.shot.weather.fire" : ["forest fire"]},
 	],
 
 	"synopsis.image.shot.location" : [
@@ -216,6 +217,13 @@ categories_and_classes = {
 
 #print categories_and_classes
 
+def download_images(arguments):
+			response = google_images_download.googleimagesdownload()   #class instantiation
+			paths = response.download(arguments)
+			print(paths)
+
+allArguments = []
+
 for category_key in categories_and_classes:
 	# concepts is an array of dictionaries
 	print "Category: " + category_key
@@ -229,9 +237,10 @@ for category_key in categories_and_classes:
 			response = google_images_download.googleimagesdownload()   #class instantiation
 			arguments = { "keywords" : searchterms, "limit" : 100, "print_urls" : False, "output_directory" : "Data/download/"+category_key, "image_directory" : concept_key,  "size" : "medium", "format" : "jpg" , "no_numbering" : True }
 			#arguments = { "keywords" : searchterms, "limit" : 100, "print_urls" : False, "output_directory" : "Data/download/"+category_key, "image_directory" : concept_key,  "size" : "medium", "save_source" : concept_key + "sources", "format" : "jpg" }
-			paths = response.download(arguments)
-			print(paths)
+			allArguments.append(arguments)
 
-#arguments = {"keywords":"Polar bears,baloons,Beaches","limit":20,"print_urls":True}   #creating list of arguments
-#paths = response.download(arguments)   #passing the arguments to the function
-#print(paths)   #printing absolute paths of the downloaded images
+# 10 concurrent google image downloaders
+pool = Pool(processes=4)
+results = pool.map(download_images, allArguments)
+
+print(results)
