@@ -8,13 +8,11 @@ CinemaNet aims to give out of the box useful classification of images / frames o
 
 Install the dependencies for our data set download script:
 
-Install [Google Image Downloader](https://github.com/hardikvasa/google-images-download)
-Install Chrome Driver with a matching version to your currently installed Google Chrome browser (for me, it was 74.x) 
-
+Install [Google Image Downloader](https://github.com/hardikvasa/google-images-download) and install [Google Chrome Driver](https://sites.google.com/a/chromium.org/chromedriver/downloads) with a matching version to your currently installed Google Chrome browser (for me, it was 74.x). Google Chrome Driver is required to download more than 100 images per google image query.
 
 You can then run `python synopsis_categories_and_concepts_image_downloader.py` to get the **unfiltered** raw data set - which will contain some bad images in the training set.
 
-The data set we are working with has images pruned from the above download results. 
+The data set we are working with has images pruned from the above download results. Once we finish we will provide zip files for easier download.
 
 You can follow along with the [Running Training Notes](https://github.com/Synopsis/CinemaNet/blob/master/Running%20Training%20Notes.md) to see the steps we are taking if you want to train yourself. 
 
