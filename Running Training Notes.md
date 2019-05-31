@@ -5,7 +5,7 @@ Plan is:
 1. ✓ Create an image data set download script with our labels and search 
 2. ✓ Download images from google via `synopsis_categories_and_concepts_image_downloader.py` 
 3. ✓ Attempt to train without manually pruning the data (by manually finessing the google search terms)
-4. Manually prune some of the poorer quality categories and measure the accuracy recall gains
+4. Manually prune some of the poorer quality categories and measure the accuracy recall gains (this is mostly for curiosity and quantitative data for a blog / medium post to be honest)
 5. Build sperate classifiers (non multi categorymulti label / attribute) models for each disctinct groupings of concept 
 6. Run inference on our entire data setto get a fully labelled multi category data set boostrapped
 7. Train a final model on our entire data set.
