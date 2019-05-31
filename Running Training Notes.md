@@ -14,6 +14,7 @@ Plan is:
 ## Current Issues:
 
 * AutoML's labels have a set length, and our 'knowledge graph' reverse DNS label naming scheme is too long, and clips our labels so they occasionally resolve to the same entry for multiple concepts. This is bad. We should re-think this for AutoML
+* * temporary solution - remove the synopsis.image dns prefix for labels (since its implied at this stage and prepend that using CoreML Tools on our resultant models and labels? 
 
 * Some of our categories return the same image for different concepts, requiring us to either set up a multi label classifier or manually prune for duplicates.
 
