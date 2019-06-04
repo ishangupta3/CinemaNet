@@ -69,6 +69,10 @@ categories_and_classes = {
 	{ "shot.angle.high" : ["high angle shot", "high angle shot film"]},
 	{ "shot.angle.eyelevel" : ["eye level shot", "eye level shot camera angle"]},
 	{ "shot.angle.low" : ["low angle shot", "low angle shot cinematography"]},
+	],
+
+	"shot.level" : [
+	{ "shot.angle.level" : ["level shot"]}
 	{ "shot.angle.tilted" : ["tilted shot", "dutch angle shot", "oblique angle shot"]},
 	],
 
