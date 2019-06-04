@@ -1,33 +1,71 @@
 from google_images_download import google_images_download   #importing the library
 from multiprocessing import Pool
 
+# the following categories and concepts are meant to capture both general image understanding 
+# as well as terminology useful to photographers, cinematographers, visual artists and those working with visual media.
+# this is the beginning of a quasi 'knowledge graph', using a reverse domain labelling system
+# allowing us to add labels without polluting existing label name spaces 
+
+# due to limitations of label length in Googles Auto ML, we have removed the prefix 
+#'synopsis.image.' from every cateogry and concept in this script. 
+
+# We add those back during clean up of our CoreML models
+
+# During training of each particular categories classifier, we also include a 'None of the above'
+# label to help the system discriminate the various concepts each category contains.
+# This script does not download (or manually prune) each cateogry/concept - it just helps us get a lot of images.
 
 # top level dictionary key is top level category directory name 
 # value is a dictionary of the concept name (sub folder) and human search terms for google image search
 
-categories_and_classes = {
-	"composition.color" : [
-	{ "composition.color.blackwhite" :  ["Black and White photography", "B&W photography"] },
-	{ "composition.color.monochromatic" : ["Monochromatic photography", "Monochromatic color photography", ]},
-	{ "composition.color.analagous" : ["Analagous photography", "Analagous color photography"]},
-	{ "composition.color.complementary" : ["complementary photography", "Complementary color photography"]},
-	{ "composition.color.cool" : ["Cool Tones photography", "Cool colors photography"]},
-	{ "composition.color.warm" : ["Warm Tones  photography", "Warm colors  photography"]},
-	{ "composition.color.saturated" : ["Saturated photography", "Saturated colors photography"]},
-	{ "composition.color.pastel" : ["Pastel photography", "Pastel colors photography", "Pastel tones photography"]},
-	{ "composition.color.neutral" : ["neutral photography", "neutral colors photography", "neutral tones photography"]},
-	{ "composition.color.muted" : ["muted photography", "muted colors photography", "muted tones photography"]},
-	{ "composition.color.desaturated" : ["Desaturated photography", "Desaturated colors photography", "Desaturated tones photography"]},
-	{ "composition.color.key" : ["chroma key", "luma key", "green screen", "blue screen", "alpha key"]},
+categories_and_concepts = {
+	
+	# What is the overall color saturation of the image?
+	"composition.color.saturation" : [
+	{ "composition.color.saturation.saturated" : ["Saturated photography", "Saturated colors photography"]},
+	{ "composition.color.saturation.pastel" : ["Pastel photography", "Pastel colors photography", "Pastel tones photography"]},
+	{ "composition.color.saturation.neutral" : ["neutral photography", "neutral colors photography", "neutral tones photography"]},
+	{ "composition.color.saturation.muted" : ["muted photography", "muted colors photography", "muted tones photography"]},
+	{ "composition.color.saturation.desaturated" : ["Desaturated photography", "Desaturated colors photography", "Desaturated tones photography"]},
+	],
+
+	# How do the colors in the image relate to one another?
+	"composition.color.theory" : [
+	{ "composition.color.theory.blackwhite" :  ["Black and White photography", "B&W photography"] },
+	{ "composition.color.theory.monochromatic" : ["Monochromatic photography", "Monochromatic color photography", ]},
+	{ "composition.color.theory.analagous" : ["Analagous photography", "Analagous color photography"]},
+	{ "composition.color.theory.complementary" : ["complementary photography", "Complementary color photography"]},
+
+	]
+	# Overall color tone of the image
+	"composition.color.tones" : [
+	{ "composition.color.tones.gray" : ["Black and White photography", "B&W photography"] },
+	{ "composition.color.tones.cool" : ["Cool Tones photography", "Cool colors photography"]},
+	{ "composition.color.tones.warm" : ["Warm Tones  photography", "Warm colors  photography"]},
+	],
+
+	# Is the image useful for keying?
+	"composition.color.key" : [
+	{ "composition.color.key.luma" : ["luma key"]},
+	{ "composition.color.key.green" : ["green screen", "chroma key green"]},
+	{ "composition.color.key.blue" : ["blue screen", "chroma key blue"]},
 	],
 
 	"composition.texture" : [
+	# train natural vs synthetic in one classifier
 	{ "composition.texture.natural" : ["natural texture", "organic texture"]},
 	{ "composition.texture.synthetic" : ["synthetic texture", "technical texture"]},
+
+
+	# train harmonious vs dissonant in one classifier
 	{ "composition.texture.harmonious" : ["harmonious texture", "harmonious photography composition"]},
 	{ "composition.texture.dissonant" : ["dissonant texture", "chaotic texture", "disordered photography"]},
+	
+	#train smooth vs rough in one classifier
 	{ "composition.texture.smooth" : ["smooth texture", "smooth photography"]},
 	{ "composition.texture.rough" : ["rough texture", "rough texture photography"]},
+
+	# train cracked vs patterned (continuous?)	
 	{ "composition.texture.cracked" : ["rough texture", "rough photography"]},
 	{ "composition.texture.patterned" : ["pattern texture", "pattern photography"]},
 	],
@@ -64,6 +102,7 @@ categories_and_classes = {
 	{ "composition.spatial.symmetric " : ["symmetrical photography"] },
  	],
 
+ 	#is the camera is angled up or down?
 	"shot.angle" : [
 	{ "shot.angle.aerial" : ["aerial photography", "aerial shot"]},
 	{ "shot.angle.high" : ["high angle shot", "high angle shot film"]},
@@ -71,11 +110,13 @@ categories_and_classes = {
 	{ "shot.angle.low" : ["low angle shot", "low angle shot cinematography"]},
 	],
 
+	# is the camera rotated about its 'z axis'? (rotated about the lens)
 	"shot.level" : [
-	{ "shot.angle.level" : ["level shot"]}
-	{ "shot.angle.tilted" : ["tilted shot", "dutch angle shot", "oblique angle shot"]},
+	{ "shot.level.level" : ["level shot"]},
+	{ "shot.level.tilted" : ["tilted shot", "dutch angle shot", "oblique angle shot"]},
 	],
 
+	# 
 	"shot.type" : [
 	{ "shot.type.establishing" : ["establishing shot", "establishing shot cinematography"]},
 	{ "shot.type.portrait" : ["portrait shot", "two shot cinematography"]},
@@ -84,6 +125,8 @@ categories_and_classes = {
 	{ "shot.type.overtheshoulder" : ["over the shoulder shot", "over the shoulder shot cinematography"]},
 	],
 
+
+	# how far are we from the shot subject?
 	"shot.framing" : [
 	{ "shot.framing.extremecloseup" : ["extreme close up shot", "extreme close up shot cinematography"]},
 	{ "shot.framing.closeup" : ["close up shot", "close up shot cinematography"]},
@@ -92,12 +135,14 @@ categories_and_classes = {
 	{ "shot.framing.extemelong" : ["extreme long shot", "extreme long shot cinematography"]},
 	],
 
+	# is the image completely, partially or not in focus?
 	"shot.focus" : [
 	{ "shot.focus.deep" : ["deep focus shot", "deep focus shot cinematography"]},
 	{ "shot.focus.shallow" : ["shallow focus shot", "shallow focus shot cinematography"]},
 	{ "shot.focus.out" : ["out of focus shot"]},
 	],
 
+	# describe the lighting environment 
 	"shot.lighting" : [
 	{ "shot.lighting.soft" : ["soft lighting cinematography", "soft lighting"]},
 	{ "shot.lighting.hard" : ["hard lighting cinematography", "hard lighting"]},
@@ -106,6 +151,7 @@ categories_and_classes = {
 	{ "shot.lighting.silhouette" : ["silhouette lighting", "silhouette lighting cinematography"]},
 	],
 
+	# what is the - generally speaking - subject of the shot, if any
 	"shot.subject" : [
 	{ "shot.subject.person" : ["portraits of people"]},
 	{ "shot.subject.people" : ["crowd of people", "people -lineart -clipart -animation", "people close together"]},
@@ -124,12 +170,14 @@ categories_and_classes = {
 	{ "shot.subject.location" : ["location photography", "establishing shot"]},
 	],
 
+	# self explanatory
 	"shot.timeofday" : [
 	{ "shot.timeofday.twilight" : ["twilight time of day", "dusk", "sunset", "sunrise"]},
 	{ "shot.timeofday.day" : ["midday photography"]},
 	{ "shot.timeofday.night" : ["night photography"]},
 	],
 
+	# self explanatory
 	"shot.weather" : [
 	{ "shot.weather.sun" : ["Sunny weather"]},
 	{ "shot.weather.clouds" : ["Cloudy weather"]},
@@ -141,6 +189,7 @@ categories_and_classes = {
 	{ "shot.weather.fire" : ["forest fire"]},
 	],
 
+	# self explanatory
 	"shot.location" : [
 	{"shot.location.interior" : ["Indoors", "Interior", "inside"]},
 	{"shot.location.exterior" : ["Outdoors", "Exterior", "outside"]},
@@ -206,7 +255,8 @@ categories_and_classes = {
 	{"shot.location.space" : ["Space"]},
 	],
 
-"sentiment" : [
+	# im unclear if there is a better way to handle sentiment inference ? 
+	"sentiment" : [
 	{ "sentiment.fear" : ["Fear photography"]},
 	{ "sentiment.anger" : ["Anger photography"]},
 	{ "sentiment.sadness" : ["Sadness photography"]},
@@ -228,10 +278,10 @@ def download_images(arguments):
 
 allArguments = []
 
-for category_key in categories_and_classes:
+for category_key in categories_and_concepts:
 	# concepts is an array of dictionaries
 	print "Category: " + category_key
-	category_concepts = categories_and_classes[category_key] 
+	category_concepts = categories_and_concepts[category_key] 
 	for concept in category_concepts:
 		for concept_key in concept:
 			print "Concept: " + concept_key 
