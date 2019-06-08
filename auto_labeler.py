@@ -4,9 +4,9 @@ import argparse
 import PIL.Image
 import coremltools
 import random
+import time
 
 parser = argparse.ArgumentParser(description='Use a folder of ML model classifiers to label a local unlabeled data set')
-
 parser.add_argument('-m', '--modeldir', type=str, help='folder containing core ml models to use as labelers. Each image to label will be run through each model', default='./models', required=True)
 parser.add_argument('-i', '--imagedir', type=str, help="folder containing unlabeled images to be labeled", default="./images", required=True)
 parser.add_argument('-o', '--output', type=str, help="destination for labeled file containing multi labels", default="./labels", required=True)
@@ -16,6 +16,8 @@ parser.add_argument('-l', '--limit', type=int, help="limit the number of images 
 parser.add_argument('-r', '--random', type=bool, help="limit the number of images we label - useful for testing", default=False, required=False)
 
 args = parser.parse_args()
+
+start = time.time()
 
 
 # load our models into our models array
@@ -43,8 +45,17 @@ for filename in os.listdir(models_path):
 		continue
 
 
+end = time.time()
+
+modeltime = end - start
+
+print("")
+print("Loading models took " + str(modeltime) + " seconds")
+print("")
+
 Height = 224 # use the correct input image height 
 Width = 224 # use the correct input image width
+
 
 def load_image(path, resize_to=None):
 
@@ -86,11 +97,12 @@ def html_header():
 def html_entry(filepath, labels):
 	html_entry = """
 	<div align="center" style="float:left; padding:5px; margin:5px; border:solid 1px gray;">
-	<img src={} width="200px" /><br/> {}
+	<a href="finder://{}"><img src={} width="200px" /></a><br/> {}
 	</div>
 	"""
 	del labels[0]
-	return html_entry.format(filepath, '<br />'.join(labels) )
+	filepath = os.path.normpath( os.path.join(dir_path, filepath) )
+	return html_entry.format(filepath, filepath, '<br />'.join(labels) )
 
 
 def html_footer():
@@ -106,6 +118,9 @@ def html_footer():
 # for reference, for multi label we want to do
 # : gs://calm-trees-123-vcm/flowers/images/5217892384_3edce91761_m.jpg,dandelion,tulip,rose
 # from https://cloud.google.com/vision/automl/docs/prepare
+
+start = time.time()
+
 all_files = []
 with open(args.output, 'wb') as writer:
 
@@ -160,6 +175,15 @@ with open(args.output, 'wb') as writer:
 if args.type is 'html':
  		writer.writer(html_footer())
 
+end = time.time()
+
+predictiontime = end - start
+
+print("")
+print("Completed Processing")
+print("")
+print( str( len(all_files) ) + " images processed in " + str(predictiontime) + " seconds")
+print( str( len(all_files)/predictiontime ) + "images / second")
 
 
 
