@@ -87,17 +87,69 @@ def html_header():
 		<head>
 
 		<title>Conforming HTML 4.01 Transitional Template</title>
+		<style>
 
+		body {
+		  font-family: Arial, Sans-serif;
+		  font-size: 10pt;
+		}
+		.masonry-layout {
+		  column-count: 3;
+		  column-gap: 0;
+		}
+		.masonry-layout__panel {
+		  break-inside: avoid;
+		  margin:5px;
+		  padding: 5px;
+		}
+		.masonry-layout__panel-content {
+		  padding: 10px;
+		  border-radius: 10px;
+		  border: solid 1px gray;
+		  background-color: #ddd;
+		}
+
+
+		@media screen and (min-width: 600px) {
+			.masonry-layout {
+			  column-count: 2;
+			 }
+		}
+		@media screen and (min-width: 800px) {
+			.masonry-layout {
+			  column-count: 3;
+			 }
+		}
+
+		@media screen and (min-width: 1000px) {
+			.masonry-layout {
+			  column-count: 4;
+			 }
+		}
+
+		@media screen and (min-width: 1200px) {
+			.masonry-layout {
+			  column-count: 5;
+			 }
+		}
+
+
+		</style
 		</head>
 
 	<body>
+	<div class="masonry-layout">
+
 	"""
 	return html_header
 
 def html_entry(filepath, labels):
 	html_entry = """
-	<div align="center" style="float:left; padding:5px; margin:5px; border:solid 1px gray;">
-	<a href="finder://{}"><img src={} width="200px" /></a><br/> {}
+	<div class="masonry-layout__panel">
+    	<div class="masonry-layout__panel-content" align="center">
+
+		<a href="file://{}"><img src={} width="100%" target="_blank"/></a><br/> {}
+		</div>
 	</div>
 	"""
 	del labels[0]
@@ -107,6 +159,7 @@ def html_entry(filepath, labels):
 
 def html_footer():
 	html_footer = """
+	</div>
 	</body>
 
 	</html>
@@ -184,6 +237,7 @@ print("Completed Processing")
 print("")
 print( str( len(all_files) ) + " images processed in " + str(predictiontime) + " seconds")
 print( str( len(all_files)/predictiontime ) + "images / second")
+print("")
 
 
 
