@@ -86,7 +86,7 @@ def html_header():
 
 		<head>
 
-		<title>Conforming HTML 4.01 Transitional Template</title>
+		<title>Synopsis Data Set Auto Labeler Output</title>
 		<style>
 
 		body {
@@ -108,7 +108,6 @@ def html_header():
 		  border: solid 1px gray;
 		  background-color: #ddd;
 		}
-
 
 		@media screen and (min-width: 600px) {
 			.masonry-layout {
@@ -132,7 +131,6 @@ def html_header():
 			  column-count: 5;
 			 }
 		}
-
 
 		</style
 		</head>
