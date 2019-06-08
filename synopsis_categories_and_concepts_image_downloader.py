@@ -31,15 +31,14 @@ categories_and_concepts = {
 
 	# How do the colors in the image relate to one another?
 	"composition.color.theory" : [
-	{ "composition.color.theory.blackwhite" :  ["Black and White photography", "B&W photography"] },
 	{ "composition.color.theory.monochromatic" : ["Monochromatic photography", "Monochromatic color photography", ]},
 	{ "composition.color.theory.analagous" : ["Analagous photography", "Analagous color photography"]},
 	{ "composition.color.theory.complementary" : ["complementary photography", "Complementary color photography"]},
+	],
 
-	]
 	# Overall color tone of the image
 	"composition.color.tones" : [
-	{ "composition.color.tones.gray" : ["Black and White photography", "B&W photography"] },
+	{ "composition.color.tones.blackwhite" :  ["Black and White photography", "B&W photography"] },
 	{ "composition.color.tones.cool" : ["Cool Tones photography", "Cool colors photography"]},
 	{ "composition.color.tones.warm" : ["Warm Tones  photography", "Warm colors  photography"]},
 	],
@@ -51,11 +50,10 @@ categories_and_concepts = {
 	{ "composition.color.key.blue" : ["blue screen", "chroma key blue"]},
 	],
 
-	"composition.texture" : [
 	# train natural vs synthetic in one classifier
+	"composition.texture" : [
 	{ "composition.texture.natural" : ["natural texture", "organic texture"]},
 	{ "composition.texture.synthetic" : ["synthetic texture", "technical texture"]},
-
 
 	# train harmonious vs dissonant in one classifier
 	{ "composition.texture.harmonious" : ["harmonious texture", "harmonious photography composition"]},
