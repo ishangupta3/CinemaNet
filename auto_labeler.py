@@ -85,12 +85,12 @@ def html_header():
 
 def html_entry(filepath, labels):
 	html_entry = """
-	<div align="center">
-	<img src={} width="200px" height="200px" /> {}
+	<div align="center" style="float:left; padding:5px; margin:5px; border:solid 1px gray;">
+	<img src={} width="200px" /><br/> {}
 	</div>
 	"""
-
-	return html_entry.format(filepath, ', '.join(labels) )
+	del labels[0]
+	return html_entry.format(filepath, '<br />'.join(labels) )
 
 
 def html_footer():
