@@ -2,40 +2,72 @@ import os
 import argparse
 import coremltools
 
+modelsToUpdate = [	
+					'synopsis.image.composition.color.theory.mlmodel',
+					'synopsis.image.composition.color.tones.mlmodel',
+					'synopsis.image.shot.angle.mlmodel',
+					'synopsis.image.shot.focus.mlmodel',
+					'synopsis.image.shot.framing.mlmodel',
+					'synopsis.image.shot.level.mlmodel',
+					'synopsis.image.shot.type.mlmodel',
+				]
 
-# Load the model
-model = coremltools.models.MLModel('Models/synopsis.image.shot.angle.mlmodel')
+# autoML labels get cliped when uploading a zip / folder and can't contain '.' separators. 
+labelsToUpdateMap = { 
+					'composition_color_theory_analago' : 'composition_color_theory_analagous',
+					'composition_color_theory_complem' : 'composition_color_theory_complementary',
+					'composition_color_theory_monochr' : 'composition_color_theory_monochrome',
+					'composition_color_tones_blackwhi' : 'composition_color_tones_blackwhite',
 
-print(model.input_description)
-print(model.output_description)
+					}			
 
+def updateModel(pathToModel):
 
+	modelName = pathToModel.replace('.mlmodel', '')
+	modelNameStripped = modelName.replace('synopsis.image.', '').replace('.', '_')
+	modelNameReadable = modelNameStripped.replace('_', ' ').title()
+	# Load the model
+	model = coremltools.models.MLModel('Models/' + pathToModel)
 
-spec = model.get_spec()
+	#print(model.input_description)
+	#print(model.output_description)
 
-spec.description.input[0].name = "image"
-spec.description.input[0].shortDescription = "Input image"
-for label in spec.neuralNetwork.layers.stringClassLabels:
-	print label
+	spec = model.get_spec()
 
-# Set the model metadata
-# model.author = 'Anton Marini'
-# model.license = 'BSD'
-# model.short_description = '.'
+	#print(spec.description)
 
+	# spec.description.input[0].name = "image"
+	# spec.description.input[0].shortDescription = "Input image"
 
+	#print(spec)
+	classLabels = spec.neuralNetworkClassifier.stringClassLabels
 
-# Get the interface to the model
+	for i in range(len(classLabels.vector)):
+		label = classLabels.vector[i]
 
-# # Set feature descriptions manually
-# model.input_description['bedroom'] = 'Number of bedrooms'
-# model.input_description['bathrooms'] = 'Number of bathrooms'
-# model.input_description['size'] = 'Size (in square feet)'
+		if label in labelsToUpdateMap:
+			classLabels.vector[i] = labelsToUpdateMap[label]
 
-# # Set
-# model.output_description['price'] = 'Price of the house'
+		if label == 'None_of_the_above':
+			classLabels.vector[i] = modelNameStripped + "_na"
+		
+		#clean up labels for production models (not for automl)
+		#classLabels.vector[i] = label.replace("_", ".")
+		#classLabels.vector[i] = 'synopsis.image.' + classLabels.vector[i]
+				
+	print(classLabels)
 
-# # Get the spec of the model
-print(spec)
+	model = coremltools.models.MLModel(spec)
 
-# Save the model
+	# Set the model metadata
+	model.author = 'Synopsis Project - Anton Marini'
+	model.license = 'BSD'
+	model.short_description = modelNameReadable + ' Classifier'
+	model.versionString =  '1.0 Beta 1'
+	model.save('Models/' + modelName +  '-updated.mlmodel')
+
+	# Save the model
+
+for model in modelsToUpdate:
+	updateModel(model)
+
