@@ -175,7 +175,7 @@ start = time.time()
 all_files = []
 with open(args.output, 'wb') as writer:
 
-	if args.type is 'csv':
+	if args.type == 'csv':
  		writer = csv.writer(writer)
  	else:
  		writer.write(html_header())
@@ -190,7 +190,7 @@ with open(args.output, 'wb') as writer:
 				all_files.append(filepath)
 
 	#do we shuffle our files?
-	if args.random is True:
+	if args.random == True:
 		random.shuffle(all_files)
 
 	#do we limit our file count so we can do a test run?
@@ -199,7 +199,7 @@ with open(args.output, 'wb') as writer:
 
 	for filepath in all_files:
 		image = load_image(filepath, resize_to=(Width, Height))
-		if image is not None:
+		if image != None:
 			labels = []
 
 			# prepend our prefix if we have it
@@ -214,7 +214,7 @@ with open(args.output, 'wb') as writer:
 				labels.append(label)
 
 			#write all of our predictions out to our CSV
-			if args.type is 'csv':
+			if args.type == 'csv':
 				writer.writerow(labels)
 			else:
 			# write HTML label version with file name for IMG tag, etc
@@ -223,7 +223,7 @@ with open(args.output, 'wb') as writer:
 			print("labeled " + filepath)
 
 
-if args.type is 'html':
+if args.type == 'html':
  		writer.writer(html_footer())
 
 end = time.time()
