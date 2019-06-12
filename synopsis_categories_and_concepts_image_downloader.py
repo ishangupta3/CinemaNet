@@ -13,7 +13,10 @@ from multiprocessing import Pool
 
 # During training of each particular categories classifier, we also include a 'None of the above'
 # label to help the system discriminate the various concepts each category contains.
-# This script does not download (or manually prune) each cateogry/concept - it just helps us get a lot of images.
+
+# This script does *not* prune each cateogry/concept - it just helps us get a lot of images which may or may not be relevant to the concept
+
+# This script does *not* fetch the 'None of the above' images. 
 
 # top level dictionary key is top level category directory name 
 # value is a dictionary of the concept name (sub folder) and human search terms for google image search
@@ -30,6 +33,7 @@ categories_and_concepts = {
 	],
 
 	# How do the colors in the image relate to one another?
+	# do we need a `none of the above`?
 	"composition.color.theory" : [
 	{ "composition.color.theory.monochromatic" : ["Monochromatic photography", "Monochromatic color photography", ]},
 	{ "composition.color.theory.analagous" : ["Analagous photography", "Analagous color photography"]},
@@ -137,7 +141,7 @@ categories_and_concepts = {
 	"shot.focus" : [
 	{ "shot.focus.deep" : ["deep focus shot", "deep focus shot cinematography"]},
 	{ "shot.focus.shallow" : ["shallow focus shot", "shallow focus shot cinematography"]},
-	{ "shot.focus.out" : ["out of focus shot"]},
+	{ "shot.focus.out" : ["out of focus", "out of focus shot"]},
 	],
 
 	# describe the lighting environment 
