@@ -65,15 +65,23 @@ def load_image(path, resize_to=None):
 		# img.verify()
 
 	except Exception:
-		print('Unable to load Image' + path)
+		print('Unable to load image' + path)
 		return None
 
 	if resize_to is not None:
-		img = img.resize(resize_to, PIL.Image.ANTIALIAS)
+		try:
+			img = img.resize(resize_to, PIL.Image.ANTIALIAS)
+		except Exception:
+			print('Unable to resize image' + path)
+			return None
 
 	# ensure we pass our image as RGB - some images might be single channel or RGBA
 	if img.mode != 'RGB':
-		img = img.convert(mode='RGB')
+		try:
+			img = img.convert(mode='RGB')
+		except Exception:
+			print('Unable to convert image to RGB' + path)
+			return None
 
 	return img
 
