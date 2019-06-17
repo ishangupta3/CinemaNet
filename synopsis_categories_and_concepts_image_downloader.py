@@ -155,22 +155,23 @@ categories_and_concepts = {
 
 	# what is the - generally speaking - subject of the shot, if any
 	"shot.subject" : [
-	{ "shot.subject.person" : ["portraits of people"]},
-	{ "shot.subject.people" : ["crowd of people", "people -lineart -clipart -animation", "people close together"]},
-	# I cant figure out a better way to get diverse results :( - this feels gross - help me.
-	# maybe https://www.ibm.com/blogs/research/2019/01/diversity-in-faces/ ? 
-	{ "shot.subject.face" : ["male face", "female face", "african american face", "asian face", "old face"]},
-	# faces, body, bodies, limb, limbs might be too specific with the plurals? Maybe make one category?
-	{ "shot.subject.faces" : ["faces close together"]},
-	{ "shot.subject.body" : ["human figure photography", ]},
-	{ "shot.subject.bodies" : ["human figures photography"]},
-	{ "shot.subject.limb" : ["limb body photography", "limb figure photography"]},
-	{ "shot.subject.limbs" : ["limbs bodies photography" "limb figures photography"]},
+	{ "shot.subject.person" : ["diverse portraits photography", "portraits of people", "people -lineart -clipart -animation]},
 	{ "shot.subject.animal" : ["wildlife photography"]},
 	{ "shot.subject.object" : ["object photography", "still life photography"]},
 	{ "shot.subject.text" : ["typographic design", "movie title design"]},
 	{ "shot.subject.location" : ["location photography", "establishing shot"]},
 	],
+
+	# I cant figure out a better way to get diverse results :( - this feels gross - help me.
+	# maybe https://www.ibm.com/blogs/research/2019/01/diversity-in-faces/ ? 
+	# faces, body, bodies, limb, limbs might be too specific with the plurals? Maybe make one category?
+	"shot.subject.person" : [
+	{ "shot.subject.face" : ["male face", "female face", "african american face", "asian face", "old face", "diverse faces photography -collage]},
+	{ "shot.subject.body" : ["diverse human figure photography", "diverse body shapes portraits"]},
+	{ "shot.subject.arms" : ["arms photography", "arms outreached photography", "arms crossed photography"]},
+	{ "shot.subject.hands" : ["hands photography", "fist photography", "holding hands photography"]},
+
+	]
 
 	# self explanatory
 	"shot.timeofday" : [
