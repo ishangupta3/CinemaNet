@@ -12,7 +12,7 @@ parser.add_argument('-i', '--imagedir', type=str, help="folder containing unlabe
 parser.add_argument('-o', '--output', type=str, help="destination for labeled file containing multi labels", default="./labels", required=True)
 parser.add_argument('-t', '--type', type=str, help="csv or html?", default="csv", required=False)
 parser.add_argument('-pre', '--prefix', type=str, help="image url prefix, useful for adding a cloud storage provider URL for example", default="", required=False)
-parser.add_argument('-l', '--limit', type=int, help="limit the number of images we label - useful for testing", default="", required=False)
+parser.add_argument('-l', '--limit', type=int, help="limit the number of images we label - useful for testing", default="1000000000000", required=False)
 parser.add_argument('-r', '--random', type=bool, help="limit the number of images we label - useful for testing", default=False, required=False)
 
 args = parser.parse_args()
