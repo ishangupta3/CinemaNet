@@ -102,6 +102,11 @@ categories_and_concepts = {
 	{ "composition.spatial.ruleofthirds" : ["rule of thirds composition photography"] },
 	{ "composition.spatial.negative " : ["negative space photography"] },
 	{ "composition.spatial.symmetric " : ["symmetrical photography"] },
+
+	# sub-category
+	{ "composition.spatial.centered" : ["centered composition", "centered photography"] },
+    { "composition.spatial.offcentered" : ["off centered photography", "off centered composition"] },
+
  	],
 
  	#is the camera is angled up or down?
