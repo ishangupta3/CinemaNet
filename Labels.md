@@ -34,7 +34,7 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 `Color psychology and color theory`
 
 #### color.saturation
-` overall saturation of the image`
+`How do we describe the overall saturation of the image`
 * color.saturation.desaturated
 * color.saturation.muted
 * color.saturation.neutral
@@ -42,20 +42,20 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * color.saturation.saturated
 
 #### color.theory 
-`Color relationship in the image`
+`How do we describe the color relationship in the image`
 * color.theory.na (not applicable)
 * color.theory.analagous
 * color.theory.complementary
 * color.theory.monochromatic
 
 #### color.tones 
-`Color temperature and tone in the image`
+`How do we describe the color temperature and tone in the image`
 * color.theory.blackwhite
 * color.theory.cool
 * color.theory.warm
 
 #### color.dominant
-`Human readable dominant colors - using most commonly used color names`
+`How do we describe the human readable dominant colors - using most commonly used color names`
 * color.dominant.white
 * color.dominant.grey
 * color.dominant.black
@@ -173,6 +173,7 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * shot.subject.text
 * shot.subject.location
 * shot.subject.person
+
 `If the subject of the image is a person, are we focusing on a particular location on the body?`
 * shot.subject.person.face
 * shot.subject.person.arm
