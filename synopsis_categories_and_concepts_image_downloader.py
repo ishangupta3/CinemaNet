@@ -227,7 +227,7 @@ categories_and_concepts = {
 	# all the 'room' subcategories are also used
 	{"shot.location.room" : ["Room"]},
 	# all the township sub categories are also used
-	{"shot.location.township" : ["township"]},
+	{"shot.location.township" : ["modern township -game"]},
 	# all the vehicle sub categories are also used
 	{"shot.location.vehicle" : ["vehicle -cartoon -toy"]},
 
