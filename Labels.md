@@ -239,6 +239,7 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.building.castle`
 * `shot.location.building.office`
 * `shot.location.building.factory`
+* `shot.location.building.farm`
 * `shot.location.building.restaurant`
 * `shot.location.building.bar (pub)`
 * `shot.location.building.cafe`
