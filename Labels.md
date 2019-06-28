@@ -191,7 +191,6 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 `What is the weather in the image, if any?`
 * shot.weather.na (not applicable)
 * shot.weather.sunny
-* shot.weather.overcast
 * shot.weather.cloudy
 * shot.weather.raining
 * shot.weather.snowing
