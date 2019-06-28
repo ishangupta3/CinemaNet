@@ -24,55 +24,44 @@ from multiprocessing import Pool
 categories_and_concepts = {
 	
 	# What is the overall color saturation of the image?
-	"composition.color.saturation" : [
-	{ "composition.color.saturation.saturated" : ["Saturated photography", "Saturated colors photography"]},
-	{ "composition.color.saturation.pastel" : ["Pastel photography", "Pastel colors photography", "Pastel tones photography"]},
-	{ "composition.color.saturation.neutral" : ["neutral photography", "neutral colors photography", "neutral tones photography"]},
-	{ "composition.color.saturation.muted" : ["muted photography", "muted colors photography", "muted tones photography"]},
-	{ "composition.color.saturation.desaturated" : ["Desaturated photography", "Desaturated colors photography", "Desaturated tones photography"]},
+	"color.saturation" : [
+	{ "color.saturation.desaturated" : ["Desaturated photography", "Desaturated colors photography", "Desaturated tones photography"]},
+	{ "color.saturation.muted" : ["muted photography", "muted colors photography", "muted tones photography"]},
+	{ "color.saturation.neutral" : ["neutral photography", "neutral colors photography", "neutral tones photography"]},
+	{ "color.saturation.pastel" : ["Pastel photography", "Pastel colors photography", "Pastel tones photography"]},
+	{ "color.saturation.saturated" : ["Saturated photography", "Saturated colors photography"]},
 	],
 
 	# How do the colors in the image relate to one another?
 	# do we need a `none of the above`?
-	"composition.color.theory" : [
-	{ "composition.color.theory.monochromatic" : ["Monochromatic photography", "Monochromatic color photography", ]},
-	{ "composition.color.theory.analagous" : ["Analagous photography", "Analagous color photography"]},
-	{ "composition.color.theory.complementary" : ["complementary photography", "Complementary color photography"]},
+	"color.theory" : [
+	# contains NA when training
+	{ "color.theory.analagous" : ["Analagous photography", "Analagous color photography"]},
+	{ "color.theory.complementary" : ["complementary photography", "Complementary color photography"]},
+	{ "color.theory.monochromatic" : ["Monochromatic photography", "Monochromatic color photography", ]},
 	],
 
 	# Overall color tone of the image
-	"composition.color.tones" : [
-	{ "composition.color.tones.blackwhite" :  ["Black and White photography", "B&W photography"] },
-	{ "composition.color.tones.cool" : ["Cool Tones photography", "Cool colors photography"]},
-	{ "composition.color.tones.warm" : ["Warm Tones  photography", "Warm colors  photography"]},
+	"color.tones" : [
+	# contains NA when training
+	{ "color.tones.blackwhite" :  ["Black and White photography", "B&W photography"] },
+	{ "color.tones.cool" : ["Cool Tones photography", "Cool colors photography"]},
+	{ "color.tones.warm" : ["Warm Tones  photography", "Warm colors  photography"]},
 	],
 
 	# Is the image useful for keying?
-	"composition.color.key" : [
-	{ "composition.color.key.luma" : ["luma key"]},
-	{ "composition.color.key.green" : ["green screen", "chroma key green"]},
-	{ "composition.color.key.blue" : ["blue screen", "chroma key blue"]},
+	"color.key" : [
+	# contains NA when training
+	{ "color.key.luma" : ["luma key"]},
+	{ "color.key.green" : ["green screen", "chroma key green"]},
+	{ "color.key.blue" : ["blue screen", "chroma key blue"]},
 	],
 
-	# train natural vs synthetic in one classifier
-	"composition.texture" : [
-	{ "composition.texture.natural" : ["natural texture", "organic texture"]},
-	{ "composition.texture.synthetic" : ["synthetic texture", "technical texture"]},
-
-	# train harmonious vs dissonant in one classifier
-	{ "composition.texture.harmonious" : ["harmonious texture", "harmonious photography composition"]},
-	{ "composition.texture.dissonant" : ["dissonant texture", "chaotic texture", "disordered photography"]},
-	
-	#train smooth vs rough in one classifier
-	{ "composition.texture.smooth" : ["smooth texture", "smooth photography"]},
-	{ "composition.texture.rough" : ["rough texture", "rough texture photography"]},
-
-	# train cracked vs patterned (continuous?)	
-	{ "composition.texture.cracked" : ["rough texture", "rough photography"]},
-	{ "composition.texture.patterned" : ["pattern texture", "pattern photography"]},
-	],
+	# color.dominant is created manually
 
 	"composition.pattern" : [
+	# contains NA when training
+
 	{ "composition.pattern.tile" : ["tiled texture", "tiled photography"]},
 	{ "composition.pattern.spiral" : ["spiral texture", "spiral nature photography"]},
 	# needs better search terms?
@@ -82,7 +71,7 @@ categories_and_concepts = {
 	{ "composition.pattern.fractal" : ["fractal texture", "fractal lens photography"]},
 	],
 
- 	"composition.spatial" : [
+	"composition.spatial" : [
  	{ "composition.spatial.perspective" : ["perspective photography", "vanishing point photography"]},
 	# needs better search terms?
 	{ "composition.spatial.orthographic" : ["orthographic photography", "orthographic photography"]},
@@ -109,29 +98,52 @@ categories_and_concepts = {
 
  	],
 
+
+	# train natural vs synthetic in one classifier
+	"composition.texture" : [
+	{ "composition.texture.natural" : ["natural texture", "organic texture"]},
+	{ "composition.texture.synthetic" : ["synthetic texture", "technical texture"]},
+
+	# train harmonious vs dissonant in one classifier
+	{ "composition.texture.harmonious" : ["harmonious texture", "harmonious photography composition"]},
+	{ "composition.texture.dissonant" : ["dissonant texture", "chaotic texture", "disordered photography"]},
+	
+	#train smooth vs rough in one classifier
+	{ "composition.texture.smooth" : ["smooth texture", "smooth photography"]},
+	{ "composition.texture.rough" : ["rough texture", "rough texture photography"]},
+
+	# train cracked vs patterned (continuous?)	
+	{ "composition.texture.cracked" : ["rough texture", "rough photography"]},
+	{ "composition.texture.patterned" : ["pattern texture", "pattern photography"]},
+	],
+
+	
+ 	
  	#is the camera is angled up or down?
 	"shot.angle" : [
+	# contains NA when training
 	{ "shot.angle.aerial" : ["aerial photography", "aerial shot"]},
 	{ "shot.angle.high" : ["high angle shot", "high angle shot film"]},
 	{ "shot.angle.eyelevel" : ["eye level shot", "eye level shot camera angle"]},
 	{ "shot.angle.low" : ["low angle shot", "low angle shot cinematography"]},
 	],
-
+	
 	# is the camera rotated about its 'z axis'? (rotated about the lens)
 	"shot.level" : [
+	# contains NA when training
 	{ "shot.level.level" : ["level shot"]},
 	{ "shot.level.tilted" : ["tilted shot", "dutch angle shot", "oblique angle shot"]},
 	],
 
 	# 
 	"shot.type" : [
-	{ "shot.type.establishing" : ["establishing shot", "establishing shot cinematography"]},
+	# contains NA when training
 	{ "shot.type.portrait" : ["portrait shot", "two shot cinematography"]},
 	{ "shot.type.twoshot" : ["two shot", "eye level shot camera angle"]},
-	{ "shot.type.master" : ["the master shot cinematography", "the master shot"]},
+	{ "shot.type.master" : ["the master shot cinematography", "the master shot", "band photo"]},
+	# Trained as a seperate concept - but still a type (ie, can have a over the shoulder two shot)
 	{ "shot.type.overtheshoulder" : ["over the shoulder shot", "over the shoulder shot cinematography"]},
 	],
-
 
 	# how far are we from the shot subject?
 	"shot.framing" : [
@@ -144,6 +156,7 @@ categories_and_concepts = {
 
 	# is the image completely, partially or not in focus?
 	"shot.focus" : [
+	# contains NA when training
 	{ "shot.focus.deep" : ["deep focus shot", "deep focus shot cinematography"]},
 	{ "shot.focus.shallow" : ["shallow focus shot", "shallow focus shot cinematography"]},
 	{ "shot.focus.out" : ["out of focus", "out of focus shot"]},
@@ -151,6 +164,7 @@ categories_and_concepts = {
 
 	# describe the lighting environment 
 	"shot.lighting" : [
+	# contains NA when training
 	{ "shot.lighting.soft" : ["soft lighting cinematography", "soft lighting"]},
 	{ "shot.lighting.hard" : ["hard lighting cinematography", "hard lighting"]},
 	{ "shot.lighting.lowkey" : ["low key lighting", "low key lighting cinematography"]},
@@ -160,6 +174,7 @@ categories_and_concepts = {
 
 	# what is the - generally speaking - subject of the shot, if any
 	"shot.subject" : [
+	# contains NA when training
 	{ "shot.subject.person" : ["diverse portraits photography", "portraits of people", "people -lineart -clipart -animation"]},
 	{ "shot.subject.animal" : ["wildlife photography"]},
 	{ "shot.subject.object" : ["object photography", "still life photography"]},
@@ -179,6 +194,7 @@ categories_and_concepts = {
 
 	# self explanatory
 	"shot.timeofday" : [
+	# contains NA when training
 	{ "shot.timeofday.twilight" : ["twilight time of day", "dusk", "sunset", "sunrise"]},
 	{ "shot.timeofday.day" : ["midday photography"]},
 	{ "shot.timeofday.night" : ["night photography"]},
@@ -186,93 +202,112 @@ categories_and_concepts = {
 
 	# self explanatory
 	"shot.weather" : [
-	{ "shot.weather.sun" : ["Sunny weather"]},
-	{ "shot.weather.clouds" : ["Cloudy weather"]},
-	{ "shot.weather.rain" : ["Rainy weather"]},
-	{ "shot.weather.fog" : ["Foggy weather"]},
-	{ "shot.weather.snow" : ["Snowy weather"]},
-	{ "shot.weather.lighting" : ["Stormy Weather"]},
-	{ "shot.weather.hail" : ["Hail weather"]},
-	{ "shot.weather.fire" : ["forest fire"]},
+	# contains NA when training
+	{ "shot.weather.sunny" : ["Sunny weather"]},
+	{ "shot.weather.cloudy" : ["Cloudy weather"]},
+	{ "shot.weather.raining" : ["Rainy weather"]},
+	{ "shot.weather.snowing" : ["Snowy weather"]},
+	# foggy?
+	# stormy?
 	],
 
 	# self explanatory
 	"shot.location" : [
+	# contains NA when training
+
+	# Trained as a seperate concepts
 	{"shot.location.interior" : ["Indoors", "Interior", "inside"]},
 	{"shot.location.exterior" : ["Outdoors", "Exterior", "outside"]},
-	{"shot.location.structure" : ["Structure", "man made"]},
-	{"shot.location.nature" : ["Nature", ""]},
-	{"shot.location.house" : ["House"]},
-	{"shot.location.apartment" : ["Apartment"]},
-	{"shot.location.mansion" : ["Mansion"]},
-	{"shot.location.building" : ["Building"]},
+
+
+	# Trained as a seperate set of concept 
+	{"shot.location.nature" : ["Nature"]},
+	# all the building subcategories are also used
+	{"shot.location.building" : ["building", "structure"]},	
+	# all the 'room' subcategories are also used
 	{"shot.location.room" : ["Room"]},
-	{"shot.location.hallway" : ["Hallway"]},
-	{"shot.location.livingroom" : ["Living Room"]},
-	{"shot.location.diningroom" : ["Dining Room"]},
-	{"shot.location.kitchen" : ["Kitchen"]},
-	{"shot.location.bedroom" : ["Bedroom"]},
-	{"shot.location.bathroom" : ["Bathroom"]},
-	{"shot.location.closet" : ["Closet"]},
-	{"shot.location.garage" : ["Garage"]},
-	{"shot.location.office" : ["Office"]},
-	{"shot.location.factory" : ["Factory"]},
-	{"shot.location.restaurant" : ["Restaurant"]},
-	{"shot.location.cafe" : ["Cafe"]},
-	{"shot.location.cafeteria" : ["Cafeteria"]},
-	{"shot.location.bar" : ["Bar"]},
-	{"shot.location.danceclub" : ["Dance Club"]},
-	{"shot.location.concerthall" : ["Concert Hall"]},
-	{"shot.location.houseofworship" : ["House Of Worship"]},
-	{"shot.location.store" : ["Store"]},
-	{"shot.location.city" : ["City"]},
-	{"shot.location.suburb" : ["Suburb"]},
-	{"shot.location.village" : ["Village"]},
-	{"shot.location.park" : ["Park"]},
-	{"shot.location.bridge" : ["Bridge"]},
-	{"shot.location.tunnel" : ["Tunnel"]},
-	{"shot.location.port" : ["Port"]},
-	{"shot.location.station" : ["Station"]},
-	{"shot.location.parkinglot" : ["Parking Lot"]},
-	{"shot.location.airport" : ["Airport"]},
-	{"shot.location.playground" : ["Playground"]},
-	{"shot.location.sidewalk" : ["Sidewalk"]},
-	{"shot.location.street" : ["Street"]},
-	{"shot.location.car" : ["Car"]},
-	{"shot.location.bus" : ["Bus"]},
-	{"shot.location.truck" : ["Truck"]},
-	{"shot.location.train" : ["Train"]},
-	{"shot.location.boat" : ["Boat"]},
-	{"shot.location.airplane" : ["Airplane"]},
-	{"shot.location.spaceship" : ["Spaceship"]},
-	{"shot.location.cockpit" : ["Cockpit"]},
-	{"shot.location.desert" : ["Desert"]},
-	{"shot.location.plains" : ["Plains"]},
-	{"shot.location.marsh" : ["Marsh"]},
-	{"shot.location.swamp" : ["Swamp"]},
-	{"shot.location.hillside" : ["Hillside"]},
-	{"shot.location.forest" : ["Forest"]},
-	{"shot.location.mountain" : ["Mountain"]},
-	{"shot.location.tundra" : ["Tundra"]},
-	{"shot.location.river" : ["River"]},
-	{"shot.location.lake" : ["Lake"]},
-	{"shot.location.ocean" : ["Ocean"]},
-	{"shot.location.canyon" : ["Canyon"]},
-	{"shot.location.glacier" : ["Glacier"]},
-	{"shot.location.space" : ["Space"]},
+	# all the township sub categories are also used
+	{"shot.location.township" : ["township"]},
+	# all the vehicle sub categories are also used
+	{"shot.location.vehicle" : ["vehicle -cartoon -toy"]},
+
+	# all sub categories trained as a sepearate set of concepts, with their own internal 'na' categories
+
+	# specific nature categories
+	{"shot.location.nature.cave" : ["Caves"]},
+	{"shot.location.nature.desert" : ["Desert"]},
+	{"shot.location.nature.plains" : ["Plains"]},
+	{"shot.location.nature.marsh" : ["Marsh"]},
+	{"shot.location.nature.swamp" : ["Swamp"]},
+	{"shot.location.nature.hillside" : ["Hillside"]},
+	{"shot.location.nature.forest" : ["Forest"]},
+	{"shot.location.nature.mountain" : ["Mountains"]},
+	{"shot.location.nature.tundra" : ["Tundra"]},
+	{"shot.location.nature.river" : ["River"]},
+	{"shot.location.nature.lake" : ["Lake"]},
+	{"shot.location.nature.ocean" : ["Ocean"]},
+	{"shot.location.nature.canyon" : ["Canyon"]},
+	{"shot.location.nature.glacier" : ["Glacier"]},
+	{"shot.location.nature.sky" : ["Sky"]},
+	{"shot.location.nature.space" : ["Space"]},
+
+	# specific building categories
+	{"shot.location.building.house" : ["House"]},
+	{"shot.location.building.mansion" : ["Mansion"]},
+	{"shot.location.building.apartment" : ["Apartment"]},
+	{"shot.location.building.castle" : ["Castle"]},
+	{"shot.location.building.office" : ["Office"]},
+	{"shot.location.building.factory" : ["Factory"]},
+	{"shot.location.building.restaurant" : ["Restaurant"]},
+	{"shot.location.building.bar" : ["Bar", "pub"]},
+	{"shot.location.building.cafe" : ["Cafe"]},
+	{"shot.location.building.houseofworship" : ["House Of Worship"]},
+	{"shot.location.building.stadium" : ["stadium"]},
+	{"shot.location.building.theater" : ["theater"]},
+	{"shot.location.building.garage" : ["garage"]},
+	{"shot.location.building.store" : ["Store"]},
+	{"shot.location.building.mall" : ["Mall"]},
+	{"shot.location.building.port" : ["port", "dock", "pier"]},
+	{"shot.location.building.ruins" : ["Ruins", "modern ruins"]},
+	{"shot.location.building.concerthall" : ["Concert Hall"]},
+	{"shot.location.building.danceclub" : ["Dance Club"]},
+	{"shot.location.building.buildng.airport" : ["Airport"]},
+	{"shot.location.building.station" : ["Station"]},
+	{"shot.location.building.parkinglot" : ["Parking Lot"]},
+	{"shot.location.building.bridge" : ["Bridge"]},
+	{"shot.location.building.tunnel" : ["Tunnel"]},
+
+	# specific room categories
+	{"shot.location.room.hallway" : ["Hallway"]},
+	{"shot.location.room.living" : ["Living Room"]},
+	{"shot.location.room.dining" : ["Dining Room"]},
+	{"shot.location.room.kitchen" : ["Kitchen"]},
+	{"shot.location.room.bed" : ["Bedroom"]},
+	{"shot.location.room.bath" : ["Bathroom"]},
+	{"shot.location.room.closet" : ["Closet"]},
+	{"shot.location.room.garage" : ["Garage"]},
+	{"shot.location.room.auditorium" : ["Auditorium"]},
+	{"shot.location.room.gym" : ["Gym"]},
+
+	# specific township categories
+	{"shot.location.township.city" : ["City"]},
+	{"shot.location.township.town" : ["Town"]},
+	{"shot.location.township.suburb" : ["Suburb"]},
+	{"shot.location.township.park" : ["Park"]},
+	{"shot.location.township.playground" : ["Playground"]},
+	{"shot.location.township.sidewalk" : ["city sidewalk photography"]},
+	{"shot.location.township.street" : ["Street"]},
+
+	# specific vehicle categories
+	{"shot.location.vehicle.car" : ["Car"]},
+	{"shot.location.vehicle.bus" : ["Bus"]},
+	{"shot.location.vehicle.truck" : ["Truck"]},
+	{"shot.location.vehicle.train" : ["Train"]},
+	{"shot.location.vehicle.boat" : ["Boat"]},
+	{"shot.location.vehicle.airplane" : ["Airplane"]},
+	{"shot.location.vehicle.spaceship" : ["Spaceship"]},
 	],
 
-	# im unclear if there is a better way to handle sentiment inference ? 
-	"sentiment" : [
-	{ "sentiment.fear" : ["Fear photography"]},
-	{ "sentiment.anger" : ["Anger photography"]},
-	{ "sentiment.sadness" : ["Sadness photography"]},
-	{ "sentiment.joy" : ["Joy photography"]},
-	{ "sentiment.disgust" : ["Disgust photography"]},
-	{ "sentiment.surprise" : ["Surprise photography"]},
-	{ "sentiment.trust" : ["Trust photography"]},
-	{ "sentiment.anticipation" : ["Anticipation photography"]},
-	],
 
  }
 
