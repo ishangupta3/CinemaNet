@@ -1,5 +1,6 @@
 from google_images_download import google_images_download   #importing the library
 from multiprocessing import Pool
+import os
 
 # the following categories and concepts are meant to capture both general image understanding 
 # as well as terminology useful to photographers, cinematographers, visual artists and those working with visual media.
@@ -257,6 +258,7 @@ categories_and_concepts = {
 	{"shot_location_building_apartment" : ["Apartment"]},
 	{"shot_location_building_castle" : ["Castle"]},
 	{"shot_location_building_office" : ["Office"]},
+	{"shot_location_building_farm" : ["Farm"]},
 	{"shot_location_building_factory" : ["Factory"]},
 	{"shot_location_building_restaurant" : ["Restaurant"]},
 	{"shot_location_building_bar" : ["Bar", "pub"]},
@@ -320,8 +322,13 @@ def download_images(arguments):
 
 allArguments = []
 
+os.mkdir("Data/download/")
+
 for category_key in categories_and_concepts:
 	# concepts is an array of dictionaries
+
+	os.mkdir("Data/download/" + category_key)
+
 	print "Category: " + category_key
 	category_concepts = categories_and_concepts[category_key] 
 	for concept in category_concepts:
@@ -329,6 +336,9 @@ for category_key in categories_and_concepts:
 			print "Concept: " + concept_key 
 			searchterms = ", ".join(concept[concept_key])
 			print "Search Terms: " + searchterms
+
+			os.mkdir("Data/download/" + category_key + "/" + concept_key)
+
 
 			response = google_images_download.googleimagesdownload()   #class instantiation
 			arguments = { "chromedriver" : "/Users/vade/Documents/Repositories/Synopsis/CinemaNet/chromedriver", "keywords" : searchterms, "limit" : 300, "print_urls" : False, "output_directory" : "Data/download/"+category_key, "image_directory" : concept_key,  "size" : "medium", "format" : "jpg" , "no_numbering" : True }
