@@ -50,9 +50,17 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 
 #### color.tones 
 `How do we describe the color temperature and tone in the image`
-* color.theory.blackwhite
-* color.theory.cool
-* color.theory.warm
+* color.tones.na (not applicable)
+* color.tones.blackwhite
+* color.tones.cool
+* color.tones.warm
+
+### color.key
+`Does the image contain a luma or chroma key?`
+* color.key.na (not applicable)
+* color.key.luma
+* color.key.green
+* color.key.blue
 
 #### color.dominant
 `How do we describe the human readable dominant colors - using most commonly used color names`
