@@ -56,6 +56,7 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 
 #### color.dominant
 `How do we describe the human readable dominant colors - using most commonly used color names`
+* color.dominant.na (not applicable)
 * color.dominant.white
 * color.dominant.grey
 * color.dominant.black
