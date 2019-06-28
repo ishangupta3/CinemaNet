@@ -8,7 +8,7 @@ TL/DR:
 
 A single frame might be tagged with:
 * `color.saturation.neutral`
-* `color.theory.saturated`
+* `color.theory.analagous`
 * `compositon.texture.smooth`
 * `shot.framing.closeup`
 * `shot.subject.person`
