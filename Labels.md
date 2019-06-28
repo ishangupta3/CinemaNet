@@ -119,7 +119,7 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 `Categories and concepts dervied from cinematography and photography concepts`
 
 ### shot.angle
-`How do we describe the image in terms of camera orientation and placement with respect to height)`
+`How do we describe the image in terms of camera orientation and placement with respect to height?`
 * shot.angle.na (not applicable)
 * shot.angle.aerial
 * shot.angle.birdseye
@@ -128,7 +128,7 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * shot.angle.low
 
 ### shot.level
-`How do we descrive the image in terms of camera orientation with respect to rotation along the direction of the lens?)`
+`How do we descrive the image in terms of camera orientation with respect to rotation along the direction of the lens?`
 * shot.level.na (not applicable)
 * shot.level.level
 * shot.level.tilted
@@ -136,7 +136,7 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 ### shot.type
 `How do we describe the image in terms of cinemographic shot type language?`
 * shot.type.na (not applicable)
-* shot.tyupe.portrait
+* shot.type.portrait
 * shot.type.twoshot
 * shot.type.master
 * shot.type.overtheshoulder
