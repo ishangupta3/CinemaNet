@@ -272,7 +272,7 @@ categories_and_concepts = {
 	{"shot_location_building_port" : ["port", "dock", "pier"]},
 	{"shot_location_building_ruins" : ["Ruins", "modern ruins"]},
 	{"shot_location_building_concerthall" : ["Concert Hall"]},
-	{"shot_location_building_danceclub" : ["Dance Club"]},
+	{"shot_location_building_nightclub" : ["Night Club"]},
 	{"shot_location_building_buildng.airport" : ["Airport"]},
 	{"shot_location_building_station" : ["Station"]},
 	{"shot_location_building_parkinglot" : ["Parking Lot"]},
