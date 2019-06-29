@@ -322,12 +322,18 @@ def download_images(arguments):
 
 allArguments = []
 
-os.mkdir("Data/download/")
+try:
+    os.stat("Data/download/")
+except:
+    os.mkdir("Data/download/")   
 
 for category_key in categories_and_concepts:
 	# concepts is an array of dictionaries
 
-	os.mkdir("Data/download/" + category_key)
+	try:
+	    os.stat("Data/download/" + category_key)
+	except:
+	    os.mkdir("Data/download/" + category_key)   
 
 	print "Category: " + category_key
 	category_concepts = categories_and_concepts[category_key] 
@@ -337,8 +343,10 @@ for category_key in categories_and_concepts:
 			searchterms = ", ".join(concept[concept_key])
 			print "Search Terms: " + searchterms
 
-			os.mkdir("Data/download/" + category_key + "/" + concept_key)
-
+			try:
+			    os.stat("Data/download/" + catcategory_key + "/" + concept_keyegory_key)
+			except:
+			    os.mkdir("Data/download/" + category_key + "/" + concept_key)   
 
 			response = google_images_download.googleimagesdownload()   #class instantiation
 			arguments = { "chromedriver" : "/Users/vade/Documents/Repositories/Synopsis/CinemaNet/chromedriver", "keywords" : searchterms, "limit" : 300, "print_urls" : False, "output_directory" : "Data/download/"+category_key, "image_directory" : concept_key,  "size" : "medium", "format" : "jpg" , "no_numbering" : True }
