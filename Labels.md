@@ -246,6 +246,7 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.building.chruch`
 * `shot.location.building.mosque`
 * `shot.location.building.synagogue`
+* `shot.location.building.temple`
 * `shot.location.building.cathedral`
 * `shot.location.building.monastery`
 * `shot.location.building.stadium`
