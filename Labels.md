@@ -221,7 +221,7 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.nature.plains`
 * `shot.location.nature.marsh`
 * `shot.location.nature.swamp`
-* `shot.location.nature.hillside`
+* `shot.location.nature.hills`
 * `shot.location.nature.forest`
 * `shot.location.nature.mountain`
 * `shot.location.nature.tundra`
