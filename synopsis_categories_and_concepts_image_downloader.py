@@ -315,7 +315,10 @@ categories_and_concepts = {
 	# specific vehicle categories
 	{"shot_location_vehicle_car" : ["Car"]},
 	{"shot_location_vehicle_bus" : ["Bus"]},
-	{"shot_location_vehicle_truck" : ["Truck"]},
+    {"shot_location_vehicle_truck" : ["Truck"]},
+	{"shot_location_vehicle_motorcycle" : ["Motorcycle riding"]}, #riding removes all white images background images
+	{"shot_location_vehicle_bicycle" : ["Bicycle riding"]}, #riding removes all white background images
+	{"shot_location_vehicle_bus" : ["Bus"]},
 	{"shot_location_vehicle_train" : ["Train"]},
 	{"shot_location_vehicle_boat" : ["Boat"]},
 	{"shot_location_vehicle_airplane" : ["Airplane"]},
