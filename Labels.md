@@ -298,6 +298,8 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 >Specific vehicle categories if we can identify them
 * `shot.location.vehicle.car`
 * `shot.location.vehicle.bus`
+* `shot.location.vehicle.motorcycle`
+* `shot.location.vehicle.bicycle`
 * `shot.location.vehicle.truck`
 * `shot.location.vehicle.train`
 * `shot.location.vehicle.boat`
