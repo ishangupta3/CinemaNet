@@ -215,6 +215,7 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.vehicle` (inside or outside of a vehicle)
 
 >Specific nature categories if we can identify them
+* `shot.location.nature.beach`
 * `shot.location.nature.cave`
 * `shot.location.nature.desert`
 * `shot.location.nature.plains`
