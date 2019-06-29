@@ -243,7 +243,11 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.building.restaurant`
 * `shot.location.building.bar (pub)`
 * `shot.location.building.cafe`
-* `shot.location.building.houseofworship`
+* `shot.location.building.chruch`
+* `shot.location.building.mosque`
+* `shot.location.building.synagogue`
+* `shot.location.building.cathedral`
+* `shot.location.building.monastery`
 * `shot.location.building.stadium`
 * `shot.location.building.theater (hall)`
 * `shot.location.building.garage`
