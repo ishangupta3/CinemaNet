@@ -238,7 +238,7 @@ categories_and_concepts = {
 	{"shot_location_nature_plains" : ["Plains"]},
 	{"shot_location_nature_marsh" : ["Marsh"]},
 	{"shot_location_nature_swamp" : ["Swamp"]},
-	{"shot_location_nature_hillside" : ["Hillside"]},
+	{"shot_location_nature_hill" : ["hills"]},
 	{"shot_location_nature_forest" : ["Forest"]},
 	{"shot_location_nature_mountain" : ["Mountains"]},
 	{"shot_location_nature_tundra" : ["Tundra"]},
