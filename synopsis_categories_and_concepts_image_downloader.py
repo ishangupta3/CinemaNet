@@ -62,7 +62,6 @@ categories_and_concepts = {
 
 	"composition_pattern" : [
 	# contains NA when training
-
 	{ "composition_pattern_tile" : ["tiled texture", "tiled photography"]},
 	{ "composition_pattern_spiral" : ["spiral texture", "spiral nature photography"]},
 	# needs better search terms?
@@ -116,9 +115,7 @@ categories_and_concepts = {
 	# train cracked vs patterned (continuous?)	
 	{ "composition_texture_cracked" : ["rough texture", "rough photography"]},
 	{ "composition_texture_patterned" : ["pattern texture", "pattern photography"]},
-	],
-
-	
+	],	
  	
  	#is the camera is angled up or down?
 	"shot_angle" : [
@@ -235,6 +232,7 @@ categories_and_concepts = {
 	# all sub categories trained as a sepearate set of concepts, with their own internal 'na' categories
 
 	# specific nature categories
+	{"shot_location_nature_beach" : ["Beach"]},
 	{"shot_location_nature_cave" : ["Caves"]},
 	{"shot_location_nature_desert" : ["Desert"]},
 	{"shot_location_nature_plains" : ["Plains"]},
@@ -250,7 +248,7 @@ categories_and_concepts = {
 	{"shot_location_nature_canyon" : ["Canyon"]},
 	{"shot_location_nature_glacier" : ["Glacier"]},
 	{"shot_location_nature_sky" : ["Sky"]},
-	{"shot_location_nature_space" : ["Space"]},
+	# {"shot_location_nature_space" : ["Space"]},
 
 	# specific building categories
 	{"shot_location_building_house" : ["House"]},
@@ -263,18 +261,30 @@ categories_and_concepts = {
 	{"shot_location_building_restaurant" : ["Restaurant"]},
 	{"shot_location_building_bar" : ["Bar", "pub"]},
 	{"shot_location_building_cafe" : ["Cafe"]},
-	{"shot_location_building_houseofworship" : ["House Of Worship"]},
+	{"shot_location_building_church" : ["Church"]},
+	{"shot_location_building_mosque" : ["Mosque" ]},
+	{"shot_location_building_temple" : ["Temple"]},
+	{"shot_location_building_synagogue" : ["Synagogue"]},
+	{"shot_location_building_cathedral" : ["Cathedral"]},
+	{"shot_location_building_monastery" : ["Monastery"]},
 	{"shot_location_building_stadium" : ["stadium"]},
 	{"shot_location_building_theater" : ["theater"]},
 	{"shot_location_building_garage" : ["garage"]},
 	{"shot_location_building_store" : ["Store"]},
 	{"shot_location_building_mall" : ["Mall"]},
-	{"shot_location_building_port" : ["port", "dock", "pier"]},
+	{"shot_location_building_port" : ["Port", ]},
+	{"shot_location_building_pier" : ["Pier"]},
+	{"shot_location_building_warehouse" : ["Warehouse"]},
 	{"shot_location_building_ruins" : ["Ruins", "modern ruins"]},
 	{"shot_location_building_concerthall" : ["Concert Hall"]},
 	{"shot_location_building_nightclub" : ["Night Club"]},
 	{"shot_location_building_buildng.airport" : ["Airport"]},
-	{"shot_location_building_station" : ["Station"]},
+	{"shot_location_building_station_train" : ["Train Station"]},
+	{"shot_location_building_station_gas" : ["Gas Station"]},
+	{"shot_location_building_station_bus" : ["Bus Station"]},
+	{"shot_location_building_subway" : ["Subway Station", "Subway -sandwich -food"]},
+	{"shot_location_building_hospital" : ["Hospital"]},	
+	{"shot_location_building_school" : ["School"]},	
 	{"shot_location_building_parkinglot" : ["Parking Lot"]},
 	{"shot_location_building_bridge" : ["Bridge"]},
 	{"shot_location_building_tunnel" : ["Tunnel"]},
@@ -290,6 +300,8 @@ categories_and_concepts = {
 	{"shot_location_room_garage" : ["Garage"]},
 	{"shot_location_room_auditorium" : ["Auditorium"]},
 	{"shot_location_room_gym" : ["Gym"]},
+	{"shot_location_room_emergency" : ["Emergency Room"]},
+	{"shot_location_room_stairwell" : ["Stairwell"]},
 
 	# specific township categories
 	{"shot_location_township_city" : ["City"]},
