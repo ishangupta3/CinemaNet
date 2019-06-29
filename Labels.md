@@ -215,6 +215,7 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.vehicle` (inside or outside of a vehicle)
 
 >Specific nature categories if we can identify them
+* `shot.location.nature.beach`
 * `shot.location.nature.cave`
 * `shot.location.nature.desert`
 * `shot.location.nature.plains`
@@ -243,18 +244,30 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.building.restaurant`
 * `shot.location.building.bar (pub)`
 * `shot.location.building.cafe`
-* `shot.location.building.houseofworship`
+* `shot.location.building.chruch`
+* `shot.location.building.mosque`
+* `shot.location.building.synagogue`
+* `shot.location.building.temple`
+* `shot.location.building.cathedral`
+* `shot.location.building.monastery`
 * `shot.location.building.stadium`
 * `shot.location.building.theater (hall)`
 * `shot.location.building.garage`
 * `shot.location.building.store`
 * `shot.location.building.mall`
 * `shot.location.building.port`
+* `shot.location.building.pier`
+* `shot.location.building.warehouse`
 * `shot.location.building.ruins`
 * `shot.location.building.concerthall`
 * `shot.location.building.nightclub`
 * `shot.location.building.buildng.airport`
-* `shot.location.building.station`
+* `shot.location.building.station.train`
+* `shot.location.building.station.gas`
+* `shot.location.building.station.bus`
+* `shot.location.building.station.subway`
+* `shot.location.building.hospital`
+* `shot.location.building.school`
 * `shot.location.building.parkinglot`
 * `shot.location.building.bridge`
 * `shot.location.building.tunnel`
@@ -270,6 +283,8 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.room.garage`
 * `shot.location.room.auditorium`
 * `shot.location.room.gym`
+* `shot.location.room.emergency`
+* `shot.location.room.stairwell`
 
 >Specific township categories if we can identify them
 * `shot.location.township.city`
