@@ -219,12 +219,11 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.nature.cave`
 * `shot.location.nature.desert`
 * `shot.location.nature.plains`
-* `shot.location.nature.marsh`
-* `shot.location.nature.swamp`
+* `shot.location.nature.wetland`
 * `shot.location.nature.hills`
 * `shot.location.nature.forest`
 * `shot.location.nature.mountain`
-* `shot.location.nature.tundra`
+* `shot.location.nature.polar` (artic, antartic)
 * `shot.location.nature.river`
 * `shot.location.nature.lake`
 * `shot.location.nature.ocean`
