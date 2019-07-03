@@ -351,7 +351,6 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.interior.truck`
 * `shot.location.interior.train`
 * `shot.location.interior.subway` (subway car)
-* `shot.location.interior.subway` (subway car)
 * `shot.location.interior.boat` 
 * `shot.location.interior.airplane` (cockpit, cabin)
 * `shot.location.interior.spacecraft` (cockpit, cabin)
