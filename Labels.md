@@ -266,7 +266,7 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.exterior.ruins`
 * `shot.location.exterior.concerthall`
 * `shot.location.exterior.nightclub`
-* `shot.location.exterior.buildng.airport`
+* `shot.location.exterior.airport`
 * `shot.location.exterior.station.train`
 * `shot.location.exterior.station.gas`
 * `shot.location.exterior.station.bus`
@@ -310,7 +310,7 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.interior.study`
 * `shot.location.interior.stairwell`
 * `shot.location.interior.elevator`
-* `shot.location.interior.garage` (factory line, factory floor)
+* `shot.location.interior.garage`
 * `shot.location.interior.factory` (factory line, factory floor)
 * `shot.location.interior.warehouse` 
 * `shot.location.interior.dungeon` 
@@ -327,10 +327,14 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.interior.cafe`
 * `shot.location.interior.arena`
 * `shot.location.interior.stage`
-* `shot.location.interior.aisle` (store)
 * `shot.location.interior.dancefloor`
+* `shot.location.interior.airport` (terminal)
+* `shot.location.interior.station.train` (terminal)
+* `shot.location.interior.station.bus` (terminal)
+* `shot.location.interior.station.subway` (subway platform, subway turnstyle, subway car)
 * `shot.location.interior.store`
-* `shot.location.interior.checkout`
+* `shot.location.interior.aisle` (store)
+* `shot.location.interior.checkout` (store)
 * `shot.location.interior.mall`
 * `shot.location.interior.nave`
 * `shot.location.interior.pulpit`
@@ -346,6 +350,8 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.interior.bus`
 * `shot.location.interior.truck`
 * `shot.location.interior.train`
+* `shot.location.interior.subway` (subway car)
+* `shot.location.interior.subway` (subway car)
 * `shot.location.interior.boat` 
 * `shot.location.interior.airplane` (cockpit, cabin)
 * `shot.location.interior.spacecraft` (cockpit, cabin)
