@@ -214,7 +214,7 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.exterior.cave` (cave entrance)
 * `shot.location.exterior.desert`
 * `shot.location.exterior.plains`
-* `shot.location.exterior.wetland`
+* `shot.location.exterior.wetlands`
 * `shot.location.exterior.hills`
 * `shot.location.exterior.forest`
 * `shot.location.exterior.mountain`
