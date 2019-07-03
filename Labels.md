@@ -206,102 +206,152 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 ### shot.location (WIP)
 >How do we describe the location of the subject / camera in the image, if any? Borrows heavily from ideas in Places 365
 * `shot.location.na` (not applicable)
-* `shot.location.interior` (indoors, inside)
+* `shot.location.interior` (indoors / inside)
 * `shot.location.exterior` (outdoors / outside)
-* `shot.location.nature` (ie, not a human made construction)
-* `shot.location.building` (any type of building)
-* `shot.location.room` (any type of room)
-* `shot.location.township` (any collection of buildings / community / city / village etc)
-* `shot.location.vehicle` (inside or outside of a vehicle)
 
->Specific nature categories if we can identify them
-* `shot.location.nature.beach`
-* `shot.location.nature.cave`
-* `shot.location.nature.desert`
-* `shot.location.nature.plains`
-* `shot.location.nature.marsh`
-* `shot.location.nature.swamp`
-* `shot.location.nature.hills`
-* `shot.location.nature.forest`
-* `shot.location.nature.mountain`
-* `shot.location.nature.tundra`
-* `shot.location.nature.river`
-* `shot.location.nature.lake`
-* `shot.location.nature.ocean`
-* `shot.location.nature.canyon`
-* `shot.location.nature.glacier`
-* `shot.location.nature.space`
-* `shot.location.nature.sky`
+>Specific nature (exterior) categories if we can identify them
+* `shot.location.exterior.beach`
+* `shot.location.exterior.cave` (cave entrance)
+* `shot.location.exterior.desert`
+* `shot.location.exterior.plains`
+* `shot.location.exterior.wetlands`
+* `shot.location.exterior.hills`
+* `shot.location.exterior.forest`
+* `shot.location.exterior.mountain`
+* `shot.location.exterior.polar` (artic, antartic)
+* `shot.location.exterior.river`
+* `shot.location.exterior.lake`
+* `shot.location.exterior.ocean`
+* `shot.location.exterior.canyon`
+* `shot.location.exterior.glacier`
+* `shot.location.exterior.space`
+* `shot.location.exterior.sky`
 
->Specific building categories if we can identify them
-* `shot.location.building.house`
-* `shot.location.building.mansion`
-* `shot.location.building.apartment`
-* `shot.location.building.castle`
-* `shot.location.building.office`
-* `shot.location.building.factory`
-* `shot.location.building.farm`
-* `shot.location.building.restaurant`
-* `shot.location.building.bar (pub)`
-* `shot.location.building.cafe`
-* `shot.location.building.chruch`
-* `shot.location.building.mosque`
-* `shot.location.building.synagogue`
-* `shot.location.building.temple`
-* `shot.location.building.cathedral`
-* `shot.location.building.monastery`
-* `shot.location.building.stadium`
-* `shot.location.building.theater (hall)`
-* `shot.location.building.garage`
-* `shot.location.building.store`
-* `shot.location.building.mall`
-* `shot.location.building.port`
-* `shot.location.building.pier`
-* `shot.location.building.warehouse`
-* `shot.location.building.ruins`
-* `shot.location.building.concerthall`
-* `shot.location.building.nightclub`
-* `shot.location.building.buildng.airport`
-* `shot.location.building.station.train`
-* `shot.location.building.station.gas`
-* `shot.location.building.station.bus`
-* `shot.location.building.station.subway`
-* `shot.location.building.hospital`
-* `shot.location.building.school`
-* `shot.location.building.parkinglot`
-* `shot.location.building.bridge`
-* `shot.location.building.tunnel`
+>Specific township (exterior) categories if we can identify them
+* `shot.location.exterior.city`
+* `shot.location.exterior.town`
+* `shot.location.exterior.suburb` 
+* `shot.location.exterior.park`
+* `shot.location.exterior.playground`
+* `shot.location.exterior.sidewalk`
+* `shot.location.exterior.street` 
 
->Specific room categories if we can identify them
-* `shot.location.room.hallway`
-* `shot.location.room.living`
-* `shot.location.room.dining`
-* `shot.location.room.kitchen`
-* `shot.location.room.bed`
-* `shot.location.room.bath`
-* `shot.location.room.closet`
-* `shot.location.room.garage`
-* `shot.location.room.auditorium`
-* `shot.location.room.gym`
-* `shot.location.room.emergency`
-* `shot.location.room.stairwell`
+>Specific building (exterior) categories if we can identify them
+* `shot.location.exterior.house`
+* `shot.location.exterior.mansion`
+* `shot.location.exterior.apartment`
+* `shot.location.exterior.castle`
+* `shot.location.exterior.skyscraper`
+* `shot.location.exterior.palace`
+* `shot.location.exterior.office`
+* `shot.location.exterior.factory`
+* `shot.location.exterior.farm`
+* `shot.location.exterior.restaurant`
+* `shot.location.exterior.bar` (or pub)
+* `shot.location.exterior.cafe`
+* `shot.location.exterior.chruch`
+* `shot.location.exterior.mosque`
+* `shot.location.exterior.synagogue`
+* `shot.location.exterior.temple`
+* `shot.location.exterior.cathedral`
+* `shot.location.exterior.monastery`
+* `shot.location.exterior.stadium`
+* `shot.location.exterior.theater` 
+* `shot.location.exterior.garage`
+* `shot.location.exterior.store`
+* `shot.location.exterior.mall`
+* `shot.location.exterior.port`
+* `shot.location.exterior.pier`
+* `shot.location.exterior.warehouse`
+* `shot.location.exterior.ruins`
+* `shot.location.exterior.concerthall`
+* `shot.location.exterior.nightclub`
+* `shot.location.exterior.airport`
+* `shot.location.exterior.station.train`
+* `shot.location.exterior.station.gas`
+* `shot.location.exterior.station.bus`
+* `shot.location.exterior.station.subway`
+* `shot.location.exterior.hospital`
+* `shot.location.exterior.school`
+* `shot.location.exterior.library`
+* `shot.location.exterior.parkinglot`
+* `shot.location.exterior.bridge`
+* `shot.location.exterior.tunnel` (entrance)
 
->Specific township categories if we can identify them
-* `shot.location.township.city`
-* `shot.location.township.town`
-* `shot.location.township.suburb` 
-* `shot.location.township.park`
-* `shot.location.township.playground`
-* `shot.location.township.sidewalk`
-* `shot.location.township.street` 
 
->Specific vehicle categories if we can identify them
-* `shot.location.vehicle.car`
-* `shot.location.vehicle.bus`
-* `shot.location.vehicle.motorcycle`
-* `shot.location.vehicle.bicycle`
-* `shot.location.vehicle.truck`
-* `shot.location.vehicle.train`
-* `shot.location.vehicle.boat`
-* `shot.location.vehicle.airplane`
-* `shot.location.vehicle.spaceship`
+>Specific vehicle (exterior) categories if we can identify them
+* `shot.location.exterior.car`
+* `shot.location.exterior.bus`
+* `shot.location.exterior.motorcycle`
+* `shot.location.exterior.bicycle`
+* `shot.location.exterior.truck`
+* `shot.location.exterior.train`
+* `shot.location.exterior.boat`
+* `shot.location.exterior.airplane`
+* `shot.location.exterior.spacecraft`
+
+
+>Specific room (interior) categories if we can identify them
+* `shot.location.interior.cave`
+* `shot.location.interior.lobby`
+* `shot.location.interior.foyer`
+* `shot.location.interior.hallway`
+* `shot.location.interior.livingroom`
+* `shot.location.interior.diningroom`
+* `shot.location.interior.kitchen`
+* `shot.location.interior.closet`
+* `shot.location.interior.bedroom`
+* `shot.location.interior.bathroom`
+* `shot.location.interior.closet`
+* `shot.location.interior.garage`
+* `shot.location.interior.auditorium`
+* `shot.location.interior.gym`
+* `shot.location.interior.emergencyroom`
+* `shot.location.interior.study`
+* `shot.location.interior.stairwell`
+* `shot.location.interior.elevator`
+* `shot.location.interior.garage`
+* `shot.location.interior.factory` (factory line, factory floor)
+* `shot.location.interior.warehouse` 
+* `shot.location.interior.dungeon` 
+* `shot.location.interior.throneroom` 
+* `shot.location.interior.classroom`
+* `shot.location.interior.cafeteria`
+* `shot.location.interior.office`
+* `shot.location.interior.openoffice`
+* `shot.location.interior.conferenceroom`
+* `shot.location.interior.barn`
+* `shot.location.interior.restaurant`
+* `shot.location.interior.commercialkitchen`
+* `shot.location.interior.bar`
+* `shot.location.interior.cafe`
+* `shot.location.interior.arena`
+* `shot.location.interior.stage`
+* `shot.location.interior.dancefloor`
+* `shot.location.interior.airport` (terminal)
+* `shot.location.interior.station.train` (terminal)
+* `shot.location.interior.station.bus` (terminal)
+* `shot.location.interior.station.subway` (subway platform, subway turnstyle, subway car)
+* `shot.location.interior.store`
+* `shot.location.interior.aisle` (store)
+* `shot.location.interior.checkout` (store)
+* `shot.location.interior.mall`
+* `shot.location.interior.nave`
+* `shot.location.interior.pulpit`
+* `shot.location.interior.prayerhall`
+* `shot.location.interior.synegogue`
+* `shot.location.interior.meditation`
+* `shot.location.interior.grandhall`
+* `shot.location.interior.crypt`
+* `shot.location.interior.cloister`
+
+>Specific vehicle (interior) if we can identify them
+* `shot.location.interior.car`
+* `shot.location.interior.bus`
+* `shot.location.interior.truck`
+* `shot.location.interior.train`
+* `shot.location.interior.subway` (subway car)
+* `shot.location.interior.boat` 
+* `shot.location.interior.airplane` (cockpit, cabin)
+* `shot.location.interior.spacecraft` (cockpit, cabin)
+
