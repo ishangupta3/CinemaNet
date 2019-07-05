@@ -229,12 +229,12 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 
 >Specific township (exterior) categories if we can identify them
 * `shot.location.exterior.city`
-* `shot.location.exterior.town`
-* `shot.location.exterior.suburb` 
 * `shot.location.exterior.park`
 * `shot.location.exterior.playground`
+* `shot.location.exterior.road` 
 * `shot.location.exterior.sidewalk`
-* `shot.location.exterior.street` 
+* `shot.location.exterior.suburb` 
+* `shot.location.exterior.town`
 
 >Specific building (exterior) categories if we can identify them
 * `shot.location.exterior.house`
