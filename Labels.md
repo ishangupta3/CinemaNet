@@ -244,8 +244,8 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.exterior.skyscraper`
 * `shot.location.exterior.palace`
 * `shot.location.exterior.office`
-* `shot.location.exterior.factory`
 * `shot.location.exterior.farm`
+* `shot.location.exterior.industrialplant`
 * `shot.location.exterior.restaurant`
 * `shot.location.exterior.bar` (or pub)
 * `shot.location.exterior.cafe`
@@ -258,19 +258,17 @@ Note that inorder to label a large data set, we train image classifiers (not mul
 * `shot.location.exterior.stadium`
 * `shot.location.exterior.theater` 
 * `shot.location.exterior.garage`
-* `shot.location.exterior.store`
 * `shot.location.exterior.mall`
 * `shot.location.exterior.port`
 * `shot.location.exterior.pier`
 * `shot.location.exterior.warehouse`
 * `shot.location.exterior.ruins`
-* `shot.location.exterior.concerthall`
-* `shot.location.exterior.nightclub`
 * `shot.location.exterior.airport`
 * `shot.location.exterior.station.train`
 * `shot.location.exterior.station.gas`
-* `shot.location.exterior.station.bus`
+* `shot.location.exterior.busstop`
 * `shot.location.exterior.station.subway`
+* `shot.location.exterior.store`
 * `shot.location.exterior.hospital`
 * `shot.location.exterior.school`
 * `shot.location.exterior.library`
