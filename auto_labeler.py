@@ -7,13 +7,14 @@ import random
 import time
 
 parser = argparse.ArgumentParser(description='Use a folder of ML model classifiers to label a local unlabeled data set')
-parser.add_argument('-m', '--modeldir', type=str, help='folder containing core ml models to use as labelers. Each image to label will be run through each model', default='./models', required=True)
+parser.add_argument('-m', '--modeldir', type=str, help='folder containing core ml models to use as labelers. Each image to label will be run through each model', default='./Models/Classifiers/Cleaned/', required=False)
 parser.add_argument('-i', '--imagedir', type=str, help="folder containing unlabeled images to be labeled", default="./images", required=True)
-parser.add_argument('-o', '--output', type=str, help="destination for labeled file containing multi labels", default="./labels", required=True)
+parser.add_argument('-o', '--output', type=str, help="destination for labeled file containing multi labels", default="./labels", required=False)
 parser.add_argument('-t', '--type', type=str, help="csv or html?", default="csv", required=False)
 parser.add_argument('-pre', '--prefix', type=str, help="image url prefix, useful for adding a cloud storage provider URL for example", default="", required=False)
 parser.add_argument('-l', '--limit', type=int, help="limit the number of images we label - useful for testing", default="1000000000000", required=False)
 parser.add_argument('-r', '--random', type=bool, help="limit the number of images we label - useful for testing", default=False, required=False)
+parser.add_argument('-p', '--probabilities', type=bool, help="report probabilities rather than predicted class label (html only)", default=False, required=False)
 
 args = parser.parse_args()
 
@@ -29,7 +30,10 @@ print('Loading Models from: ' + models_path)
 
 models = []
 
-for filename in os.listdir(models_path):
+modelfiles = os.listdir(models_path)
+modelfiles.sort()
+
+for filename in modelfiles:
 	if filename.endswith('.mlmodel'):	
 		model_path = (os.path.join(models_path, filename))
 
@@ -149,19 +153,52 @@ def html_header():
 	"""
 	return html_header
 
-def html_entry(filepath, labels):
+def html_entry_label(filepath, labels):
 	html_entry = """
 	<div class="masonry-layout__panel">
     	<div class="masonry-layout__panel-content" align="center">
 
-		<a href="file://{}"><img src={} width="100%" target="_blank"/></a><br/> {}
+		<a href="file://{}"><img src="file://{}" width="100%" target="_blank"/></a><br/> {}
 		</div>
 	</div>
 	"""
+
+	# item 0 is the image name
 	del labels[0]
+
 	filepath = os.path.normpath( os.path.join(dir_path, filepath) )
 	return html_entry.format(filepath, filepath, '<br />'.join(labels) )
 
+def html_entry_scores_table(labels, scores):
+	html = '<table>'
+
+	for i in range(0, len(labels)):
+		html += '<tr>'
+		html += '<td>'
+
+		html += labels[i]
+		html += '</td>'
+		html += '<td>'
+		html += scores[i]
+		html += '</td>'
+		html += '</tr>'
+
+	html += '</table>'
+
+	return html
+
+def html_entry_scores(filepath, scores):
+	html_entry = """
+	<div class="masonry-layout__panel">
+    	<div class="masonry-layout__panel-content" align="center">
+
+		<a href="file://{}"><img src="file://{}" width="100%" target="_blank"/></a><br/> {}
+		</div>
+	</div>
+	"""
+
+	filepath = os.path.normpath( os.path.join(dir_path, filepath) )
+	return html_entry.format(filepath, filepath, html_entry_scores_table(scores.keys(), map(str, scores.values() ) ) )
 
 def html_footer():
 	html_footer = """
@@ -209,6 +246,7 @@ with open(args.output, 'wb') as writer:
 		image = load_image(filepath, resize_to=(Width, Height))
 		if image != None:
 			labels = []
+			scores = {}
 
 			# prepend our prefix if we have it
 			if args.prefix:
@@ -217,7 +255,11 @@ with open(args.output, 'wb') as writer:
 				labels.append(filepath)
 
 			for model in models:
-				prediction = model.predict({'image__0': image})
+				prediction = model.predict({'Image': image})
+
+				score = prediction['scores__0']
+				scores.update(score)
+
 				label = prediction['classLabel']
 				labels.append(label)
 
@@ -226,13 +268,17 @@ with open(args.output, 'wb') as writer:
 				writer.writerow(labels)
 			else:
 			# write HTML label version with file name for IMG tag, etc
-				writer.write( html_entry(filepath, labels) )
+				
+				if args.probabilities:
+					writer.write( html_entry_scores(filepath, scores) )
+				else:		
+					writer.write( html_entry_label(filepath, labels) )
 
 			print("labeled " + filepath)
 
 
-if args.type == 'html':
- 		writer.writer(html_footer())
+	if args.type == 'html':
+	 		writer.write(html_footer())
 
 end = time.time()
 
