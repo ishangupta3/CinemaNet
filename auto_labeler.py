@@ -4,6 +4,7 @@ import argparse
 import PIL.Image
 import coremltools
 import random
+import math
 import time
 
 parser = argparse.ArgumentParser(description='Use a folder of ML model classifiers to label a local unlabeled data set')
@@ -114,6 +115,7 @@ def html_header():
 		  margin:5px;
 		  padding: 5px;
 		}
+
 		.masonry-layout__panel-content {
 		  padding: 10px;
 		  border-radius: 10px;
@@ -144,6 +146,15 @@ def html_header():
 			 }
 		}
 
+		#bar {
+		 height: 100%;
+		 background-color: green;
+		}
+
+		#label {
+
+		}
+
 		</style
 		</head>
 
@@ -169,21 +180,26 @@ def html_entry_label(filepath, labels):
 	filepath = os.path.normpath( os.path.join(dir_path, filepath) )
 	return html_entry.format(filepath, filepath, '<br />'.join(labels) )
 
-def html_entry_scores_table(labels, scores):
-	html = '<table>'
+def html_entry_scores_table(items):
+	
+	html = '<div style="max-height:300px; overflow-y:scroll">'
+	html += '<table style="width:100%;">'
 
-	for i in range(0, len(labels)):
+	for i in range(0, len(items)):
+		label = items[i][0]
+		score = items[i][1]
+
+		percentString = str( math.ceil( score * 10000.0) / 100.0 ) + '%'
+
 		html += '<tr>'
 		html += '<td>'
-
-		html += labels[i]
+		html += '<div id="bar" style="height:17px; width:' + percentString + '">'+ label + '</div>'
 		html += '</td>'
-		html += '<td>'
-		html += scores[i]
-		html += '</td>'
+		html += '<td>' + percentString + '</td>'
 		html += '</tr>'
 
 	html += '</table>'
+	html += '</div>'
 
 	return html
 
@@ -198,7 +214,13 @@ def html_entry_scores(filepath, scores):
 	"""
 
 	filepath = os.path.normpath( os.path.join(dir_path, filepath) )
-	return html_entry.format(filepath, filepath, html_entry_scores_table(scores.keys(), map(str, scores.values() ) ) )
+
+	# sort our scores dictionary to highest scoring and to 2 arrays
+	# this is a list of tupes of key values.
+	items = sorted(scores.items(), key = lambda kv:(kv[1], kv[0]))
+	items.reverse()
+
+	return html_entry.format(filepath, filepath, html_entry_scores_table(items ) )
 
 def html_footer():
 	html_footer = """
