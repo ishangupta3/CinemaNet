@@ -68,11 +68,14 @@ def updateModel(originalModelFileName):
 	# Update Output names to be nicer:
 	spec.description.input[0].name = "Image"
 	spec.description.input[0].shortDescription = "Input image"
-	# spec.description.output[0].name = "Scores"
-	# spec.description.output[0].shortDescription = "Predicted class scores"
-	# spec.description.output[1].name = "Class Label"
-	# spec.description.output[1].shortDescription = "Predicted Class"
+	spec.description.output[0].name = "Scores"
+	spec.description.output[0].shortDescription = "Predicted class scores"
+	spec.description.output[1].name = "Class Label"
+	spec.description.output[1].shortDescription = "Predicted Class"
 
+	spec.description.predictedFeatureName = "Class Label"
+	spec.description.predictedProbabilitiesName = "Scores"
+	
 	# add a new output for our feature extractor (1280 array length)
 	# from https://forums.developer.apple.com/thread/78876
 	# nn = spec.neuralNetworkClassifier  
@@ -91,19 +94,23 @@ def updateModel(originalModelFileName):
 	# new_output_params.shape.extend([1280]) #shape should be in order [Seq, Batch, channel, height, width] or [channel, height, width]  
 
 	# Update our layer names to reflect our changes above.
+
+
+
 	for i in range(len(spec.neuralNetworkClassifier.layers)):
 
 	    if spec.neuralNetworkClassifier.layers[i].input[0] == "image__0":
 	        spec.neuralNetworkClassifier.layers[i].input[0] = "Image"
 
-	    # if spec.neuralNetworkClassifier.layers[i].output[0] == "scores__0":
-	    #     spec.neuralNetworkClassifier.layers[i].output[0] = "Scores"
+	    if spec.neuralNetworkClassifier.layers[i].output[0] == "scores__0":
+	        spec.neuralNetworkClassifier.layers[i].output[0] = "Scores"
 
-	    # if spec.neuralNetworkClassifier.layers[i].output[0] == "classLabel":
-	    #     spec.neuralNetworkClassifier.layers[i].output[0] = "Class Label"
+	    if spec.neuralNetworkClassifier.layers[i].output[0] == "classLabel":
+	        spec.neuralNetworkClassifier.layers[i].output[0] = "Class Label"
 
 	# update our preprocessor input too
 	spec.neuralNetworkClassifier.preprocessing[0].featureName = "Image"        
+	spec.neuralNetworkClassifier.labelProbabilityLayerName = "Scores"
 
 
 	# Update our label names

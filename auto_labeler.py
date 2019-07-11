@@ -279,10 +279,10 @@ with open(args.output, 'wb') as writer:
 			for model in models:
 				prediction = model.predict({'Image': image})
 
-				score = prediction['scores__0']
+				score = prediction['Scores']
 				scores.update(score)
 
-				label = prediction['classLabel']
+				label = prediction['Class Label']
 				labels.append(label)
 
 			#write all of our predictions out to our CSV
